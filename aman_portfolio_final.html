@@ -1,0 +1,1389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aman Raj: Marketing Manager | Growth & Performance Marketing</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --black:      #0B0B0B;
+      --white:      #FAFAF8;
+      --grey-100:   #F2F1EE;
+      --grey-200:   #E4E2DC;
+      --grey-400:   #A8A49A;
+      --grey-600:   #6B6760;
+      --accent:     #C17F3E;
+      --accent-light: #F0E4D2;
+      --font-main:  'Montserrat', sans-serif;
+      --font-serif: 'Playfair Display', serif;
+      --ease-out:   cubic-bezier(0.22, 1, 0.36, 1);
+      --section-pad: 120px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: var(--font-main);
+      background: var(--white);
+      color: var(--black);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+
+    .label {
+      font-size: 11px; font-weight: 600;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--grey-400);
+    }
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 700; line-height: 1.15; letter-spacing: -0.02em;
+    }
+    .serif-italic {
+      font-family: var(--font-serif);
+      font-style: italic; font-weight: 400;
+      color: var(--accent);
+    }
+    .container { max-width: 1160px; margin: 0 auto; padding: 0 40px; }
+    .section { padding: var(--section-pad) 0; }
+
+    .reveal {
+      opacity: 0; transform: translateY(32px);
+      transition: opacity 0.75s var(--ease-out), transform 0.75s var(--ease-out);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+    .reveal-delay-5 { transition-delay: 0.5s; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 24px 40px; display: flex; align-items: center;
+      justify-content: space-between; transition: background 0.4s, box-shadow 0.4s;
+    }
+    nav.scrolled {
+      background: rgba(250, 250, 248, 0.92);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 1px 0 var(--grey-200);
+    }
+    .nav-logo { font-size: 14px; font-weight: 700; letter-spacing: 0.05em; }
+    .nav-links { display: flex; gap: 36px; list-style: none; }
+    .nav-links a {
+      font-size: 12px; font-weight: 500; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--grey-600); transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--black); }
+    .nav-cta {
+      font-size: 12px; font-weight: 600; letter-spacing: 0.06em;
+      padding: 10px 22px; background: var(--black); color: var(--white) !important;
+      border-radius: 100px; transition: background 0.2s, transform 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--accent) !important; transform: translateY(-1px); }
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+    .nav-hamburger span { width: 22px; height: 1.5px; background: var(--black); transition: all 0.3s; }
+
+    /* HERO */
+    #hero {
+      min-height: 100vh; display: flex; flex-direction: column;
+      justify-content: center; position: relative; overflow: hidden; padding-top: 100px;
+    }
+    .hero-bg-circle { position: absolute; border-radius: 50%; pointer-events: none; }
+    .hero-bg-circle-1 {
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, var(--accent-light) 0%, transparent 70%);
+      top: -100px; right: -100px; opacity: 0.6;
+    }
+    .hero-bg-circle-2 {
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, var(--grey-200) 0%, transparent 70%);
+      bottom: 80px; left: -60px; opacity: 0.8;
+    }
+    .hero-line {
+      position: absolute; top: 0; bottom: 0; right: 38%; width: 1px;
+      background: linear-gradient(to bottom, transparent, var(--grey-200) 30%, var(--grey-200) 70%, transparent);
+      pointer-events: none;
+    }
+    .hero-inner { position: relative; z-index: 2; }
+    .hero-label { margin-bottom: 32px; display: flex; align-items: center; gap: 16px; }
+    .hero-label::before { content: ''; display: block; width: 40px; height: 1px; background: var(--accent); }
+    .hero-name {
+      font-size: clamp(3.5rem, 8vw, 7rem); font-weight: 800;
+      line-height: 0.95; letter-spacing: -0.04em; margin-bottom: 8px;
+    }
+    .hero-role {
+      font-size: clamp(3.2rem, 7.5vw, 6.4rem); font-weight: 300;
+      line-height: 1; letter-spacing: -0.03em; color: var(--grey-400); margin-bottom: 48px;
+    }
+    .hero-subtext {
+      max-width: 560px; font-size: 17px; font-weight: 400;
+      line-height: 1.75; color: var(--grey-600); margin-bottom: 56px;
+    }
+    .hero-actions { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; margin-left: 48px; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 16px 36px; background: var(--black); color: var(--white);
+      font-family: var(--font-main); font-size: 13px; font-weight: 600;
+      letter-spacing: 0.06em; text-transform: uppercase; border: none;
+      border-radius: 100px; cursor: pointer;
+      transition: background 0.25s, transform 0.25s var(--ease-out), box-shadow 0.25s;
+    }
+    .btn-primary:hover { background: var(--accent); transform: translateY(-2px); box-shadow: 0 12px 32px rgba(193,127,62,0.3); }
+    .btn-primary svg { transition: transform 0.25s; }
+    .btn-primary:hover svg { transform: translateX(3px); }
+    .btn-secondary {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 13px; font-weight: 600; letter-spacing: 0.06em;
+      text-transform: uppercase; color: var(--grey-600); padding: 16px 4px;
+      border-bottom: 1px solid var(--grey-200); transition: color 0.2s, border-color 0.2s;
+    }
+    .btn-secondary:hover { color: var(--black); border-color: var(--black); }
+    .hero-scroll-hint {
+      position: absolute; bottom: 48px; left: 40px;
+      display: flex; flex-direction: column; align-items: center; gap: 8px; opacity: 0.4;
+    }
+    .scroll-dot { width: 1px; height: 48px; background: linear-gradient(to bottom, transparent, var(--black)); }
+    .hero-scroll-hint span {
+      font-size: 10px; font-weight: 500; letter-spacing: 0.15em;
+      text-transform: uppercase; writing-mode: vertical-rl;
+    }
+    .hero-stats { position: absolute; bottom: 48px; right: 40px; display: flex; gap: 40px; }
+    .hero-stat-item { text-align: right; }
+    .hero-stat-number { font-size: 24px; font-weight: 700; letter-spacing: -0.02em; line-height: 1; }
+    .hero-stat-label { font-size: 10px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--grey-400); margin-top: 4px; }
+
+    .divider { height: 1px; background: var(--grey-200); margin: 0 40px; }
+
+    /* ABOUT */
+    #about { background: var(--white); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1.6fr; gap: 80px; align-items: start; }
+    .about-left { position: sticky; top: 100px; }
+    .about-portrait {
+      width: 100%; aspect-ratio: 3/4; border-radius: 4px;
+      position: relative; overflow: hidden; margin-bottom: 24px;
+    }
+    .about-body p { font-size: 16px; line-height: 1.85; color: var(--grey-600); margin-bottom: 24px; }
+    .about-body p:last-child { margin-bottom: 0; }
+    .about-body strong { font-weight: 600; color: var(--black); }
+    .about-body .highlight-line {
+      font-size: 20px; font-weight: 400; line-height: 1.5; color: var(--black);
+      font-family: var(--font-serif); font-style: italic;
+      border-left: 2px solid var(--accent); padding-left: 24px; margin: 36px 0;
+    }
+    .about-tagline {
+      font-size: clamp(1.6rem, 2.5vw, 2rem); font-weight: 700;
+      line-height: 1.3; letter-spacing: -0.02em; margin-bottom: 32px;
+    }
+    .years-badge { display: inline-flex; align-items: baseline; gap: 4px; margin-top: 8px; }
+    .years-badge .num { font-size: 48px; font-weight: 800; letter-spacing: -0.04em; line-height: 1; }
+    .years-badge .suffix { font-size: 14px; font-weight: 400; color: var(--grey-400); }
+
+    /* IMPACT */
+    #impact { background: var(--black); color: var(--white); }
+    #impact .label { color: var(--grey-600); }
+    #impact .section-title { color: var(--white); }
+    .impact-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 72px; }
+    .impact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-bottom: 2px; }
+    .impact-card {
+      background: #161616; padding: 48px 40px;
+      position: relative; overflow: hidden; transition: background 0.3s;
+    }
+    .impact-card:hover { background: #1D1D1D; }
+    .impact-card::after {
+      content: ''; position: absolute; bottom: 0; left: 0;
+      width: 0; height: 1px; background: var(--accent);
+      transition: width 0.5s var(--ease-out);
+    }
+    .impact-card:hover::after { width: 100%; }
+    .impact-number {
+      font-size: clamp(2.5rem, 4vw, 3.8rem); font-weight: 800;
+      letter-spacing: -0.03em; line-height: 1; color: var(--white); margin-bottom: 8px;
+    }
+    .impact-number .accent { color: var(--accent); }
+    .impact-metric {
+      font-size: 12px; font-weight: 600; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--grey-600); margin-bottom: 20px;
+    }
+    .impact-desc { font-size: 14px; line-height: 1.7; color: #888; }
+    .impact-card-wide { grid-column: span 2; }
+
+    .impact-timeline { margin-top: 80px; }
+    .timeline-label { margin-bottom: 40px; }
+    .timeline-items { display: flex; flex-direction: column; }
+    .timeline-item {
+      display: grid; grid-template-columns: 200px 1px 1fr;
+      gap: 0 40px; padding: 40px 0; border-top: 1px solid #1E1E1E; align-items: start;
+    }
+    .timeline-item:last-child { border-bottom: 1px solid #1E1E1E; }
+    .timeline-period { font-size: 12px; font-weight: 500; letter-spacing: 0.08em; color: var(--grey-600); padding-top: 4px; }
+    .timeline-connector { background: #1E1E1E; position: relative; }
+    .timeline-connector::before {
+      content: ''; position: absolute; top: 8px; left: 50%;
+      transform: translateX(-50%); width: 5px; height: 5px;
+      border-radius: 50%; background: var(--accent);
+    }
+    .timeline-role { font-size: 18px; font-weight: 700; color: var(--white); letter-spacing: -0.01em; margin-bottom: 4px; }
+    .timeline-company { font-size: 13px; font-weight: 500; color: var(--accent); letter-spacing: 0.04em; margin-bottom: 16px; }
+    .timeline-desc { font-size: 14px; line-height: 1.7; color: #888; }
+
+    /* CASE STUDIES */
+    #cases { background: var(--grey-100); }
+    .cases-header { margin-bottom: 72px; }
+    .case-item { padding: 64px 0; border-top: 1px solid var(--grey-200); }
+    .case-item:last-child { border-bottom: 1px solid var(--grey-200); }
+    .case-top { display: flex; align-items: flex-start; gap: 32px; margin-bottom: 24px; }
+    .case-number {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.15em;
+      color: var(--grey-400); padding-top: 6px; flex-shrink: 0; min-width: 72px;
+    }
+    .case-title {
+      font-size: clamp(1.4rem, 2.5vw, 1.9rem); font-weight: 700;
+      letter-spacing: -0.02em; line-height: 1.2;
+    }
+    .case-context {
+      font-size: 14px; line-height: 1.75; color: var(--grey-600);
+      margin-bottom: 36px; max-width: 820px; padding-left: 104px;
+    }
+    .case-pra {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 40px; padding-left: 104px;
+    }
+    .case-pra-block h4 {
+      font-size: 10px; font-weight: 700; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 12px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .case-pra-block h4::before { content: ''; display: block; width: 16px; height: 1px; background: var(--accent); }
+    .case-pra-block p, .case-pra-block li {
+      font-size: 13.5px; line-height: 1.75; color: var(--grey-600);
+    }
+    .case-pra-block ul { list-style: none; padding: 0; margin: 0; }
+    .case-pra-block ul li { padding-left: 14px; position: relative; margin-bottom: 6px; }
+    .case-pra-block ul li::before {
+      content: ''; position: absolute; left: 0; top: 10px;
+      width: 4px; height: 4px; border-radius: 50%;
+      background: var(--accent); opacity: 0.6;
+    }
+
+    .case-bottom { display: flex; align-items: center; gap: 24px; margin-top: 40px; padding-left: 104px; flex-wrap: wrap; }
+    .case-result-highlight {
+      padding: 24px 32px; background: var(--white); border-left: 2px solid var(--accent);
+      display: inline-flex; align-items: baseline; gap: 12px; flex-shrink: 0;
+    }
+    .case-result-highlight .big-num { font-size: 36px; font-weight: 800; letter-spacing: -0.03em; color: var(--black); line-height: 1; }
+    .case-result-highlight .big-label { font-size: 13px; color: var(--grey-600); }
+
+    .metric-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .metric-chip {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 6px 14px; background: var(--white); border: 1px solid var(--grey-200);
+      border-radius: 100px; font-size: 11px; font-weight: 500;
+      color: var(--grey-600); letter-spacing: 0.02em;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .metric-chip:hover { border-color: var(--accent); color: var(--black); }
+    .metric-chip .chip-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+
+    .case-diagram {
+      margin-top: 36px; margin-left: 104px; padding: 28px 24px;
+      background: linear-gradient(180deg, #fff 0%, #FCFBF8 100%);
+      border: 1px solid var(--grey-200); border-radius: 18px;
+      box-shadow: 0 10px 28px rgba(11, 11, 11, 0.04);
+    }
+    .diagram-title {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 22px;
+    }
+    .framework-grid {
+      display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px;
+      margin-bottom: 18px;
+    }
+    .framework-card, .pillar-card, .step-card, .mini-note {
+      background: #fff; border: 1px solid var(--grey-200); border-radius: 14px;
+      padding: 16px 16px 14px;
+    }
+    .framework-card h5, .pillar-card h5, .step-card h5 {
+      font-size: 14px; font-weight: 700; color: var(--black); margin-bottom: 8px; line-height: 1.35;
+    }
+    .framework-card p, .pillar-card p, .step-card p, .mini-note p {
+      font-size: 12px; line-height: 1.6; color: var(--grey-600);
+    }
+    .framework-kicker {
+      display: inline-flex; align-items: center; gap: 8px; margin-bottom: 10px;
+      font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #6E6A63;
+    }
+    .framework-kicker::before {
+      content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--accent);
+    }
+    .flow-strip {
+      display: flex; flex-wrap: wrap; gap: 10px; align-items: center;
+      margin-top: 10px;
+    }
+    .flow-pill {
+      position: relative; padding: 10px 14px; background: #fff; border: 1px solid var(--grey-200);
+      border-radius: 999px; font-size: 11px; font-weight: 600; color: var(--black);
+    }
+    .flow-pill:not(:last-child)::after {
+      content: '→'; position: absolute; right: -14px; top: 50%; transform: translateY(-50%);
+      color: #B1ABA1; font-size: 13px; font-weight: 700;
+    }
+    .flow-pill.highlight {
+      background: var(--accent-light); border-color: rgba(193,127,62,0.3);
+    }
+    .step-flow {
+      display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 12px;
+    }
+    .step-card {
+      position: relative; padding-top: 18px;
+    }
+    .step-number {
+      width: 28px; height: 28px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;
+      background: var(--accent-light); border: 1px solid rgba(193,127,62,0.35); color: var(--black);
+      font-size: 12px; font-weight: 700; margin-bottom: 12px;
+    }
+    .step-card.highlight {
+      background: #F8F4EC; border-color: rgba(193,127,62,0.28);
+    }
+    .step-card:not(:last-child)::after {
+      content: '→'; position: absolute; right: -10px; top: 28px; color: #B1ABA1; font-weight: 700;
+    }
+    .pillar-grid {
+      display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-bottom: 16px;
+    }
+    .pillar-card {
+      min-height: 170px;
+    }
+    .pillar-card .pillar-line {
+      width: 100%; height: 1px; background: var(--grey-200); margin: 10px 0 12px;
+    }
+    .result-banner {
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      background: #fff; border: 1px solid var(--grey-200); border-radius: 14px; padding: 16px 18px;
+    }
+    .result-banner strong {
+      font-size: 16px; color: var(--black); letter-spacing: -0.01em;
+    }
+    .result-banner span {
+      font-size: 12px; line-height: 1.55; color: var(--grey-600);
+    }
+    .result-chip {
+      flex-shrink: 0; padding: 10px 14px; border-radius: 999px; background: var(--accent-light);
+      border: 1px solid rgba(193,127,62,0.3); font-size: 12px; font-weight: 700; color: var(--black);
+    }
+    .notes-grid {
+      display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 16px;
+    }
+    .mini-note strong {
+      display: block; font-size: 13px; color: var(--black); margin-bottom: 6px;
+    }
+
+    /* SKILLS */
+    #skills { background: var(--white); }
+    .skills-layout { display: grid; grid-template-columns: 1fr 1.2fr; gap: 100px; align-items: start; }
+    .skills-desc { font-size: 16px; line-height: 1.8; color: var(--grey-600); margin-top: 32px; margin-bottom: 48px; }
+    .skill-categories { display: flex; flex-direction: column; }
+    .skill-category { padding: 28px 0; border-top: 1px solid var(--grey-200); }
+    .skill-category:last-child { border-bottom: 1px solid var(--grey-200); }
+    .skill-cat-header { display: flex; justify-content: space-between; align-items: center; }
+    .skill-cat-name { font-size: 15px; font-weight: 600; color: var(--black); }
+    .skill-cat-count { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; color: var(--grey-400); }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    .skill-tag {
+      display: inline-block; padding: 6px 14px; background: var(--grey-100);
+      border-radius: 100px; font-size: 12px; font-weight: 500;
+      color: var(--grey-600); letter-spacing: 0.02em;
+      transition: background 0.2s, color 0.2s;
+    }
+    .skill-tag:hover { background: var(--black); color: var(--white); }
+    .skills-right { position: sticky; top: 100px; }
+    .proficiency-bars { display: flex; flex-direction: column; gap: 28px; }
+    .prof-header { display: flex; justify-content: space-between; margin-bottom: 10px; }
+    .prof-name { font-size: 13px; font-weight: 600; color: var(--black); }
+    .prof-pct { font-size: 12px; font-weight: 500; color: var(--grey-400); }
+    .prof-track { height: 2px; background: var(--grey-200); border-radius: 100px; overflow: hidden; }
+    .prof-fill { height: 100%; background: var(--black); border-radius: 100px; width: 0; transition: width 1.2s var(--ease-out); }
+    .prof-fill.animated { width: var(--target-width); }
+    .tools-grid { margin-top: 64px; }
+    .tools-grid .label { margin-bottom: 24px; display: block; }
+    .tools-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+    .tool-chip {
+      padding: 14px 16px; background: var(--grey-100); font-size: 12px;
+      font-weight: 500; color: var(--grey-600); text-align: center;
+      transition: background 0.2s, color 0.2s;
+    }
+    .tool-chip:hover { background: var(--black); color: var(--white); }
+
+    /* CTA */
+    #cta { background: var(--black); color: var(--white); text-align: center; position: relative; overflow: hidden; }
+    .cta-bg-ring { position: absolute; border-radius: 50%; border: 1px solid rgba(255,255,255,0.05); pointer-events: none; }
+    .cta-bg-ring-1 { width: 500px; height: 500px; top: 50%; left: 50%; transform: translate(-50%,-50%); }
+    .cta-bg-ring-2 { width: 750px; height: 750px; top: 50%; left: 50%; transform: translate(-50%,-50%); }
+    .cta-bg-ring-3 { width: 1000px; height: 1000px; top: 50%; left: 50%; transform: translate(-50%,-50%); }
+    .cta-inner { position: relative; z-index: 2; max-width: 720px; margin: 0 auto; }
+    .cta-eyebrow { margin-bottom: 32px; }
+    .cta-heading {
+      font-size: clamp(2.4rem, 5vw, 4.5rem); font-weight: 800;
+      letter-spacing: -0.03em; line-height: 1.1; color: var(--white); margin-bottom: 24px;
+    }
+    .cta-sub { font-size: 17px; font-weight: 400; line-height: 1.7; color: #888; margin-bottom: 56px; }
+    .cta-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 16px 36px; background: transparent; color: var(--white);
+      font-family: var(--font-main); font-size: 13px; font-weight: 600;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      border: 1px solid rgba(255,255,255,0.2); border-radius: 100px;
+      cursor: pointer; transition: border-color 0.25s, background 0.25s;
+    }
+    .btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,0.06); }
+    .btn-accent {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 16px 36px; background: var(--accent); color: var(--white);
+      font-family: var(--font-main); font-size: 13px; font-weight: 600;
+      letter-spacing: 0.06em; text-transform: uppercase; border: none;
+      border-radius: 100px; cursor: pointer;
+      transition: transform 0.25s var(--ease-out), box-shadow 0.25s, background 0.25s;
+    }
+    .btn-accent:hover { transform: translateY(-2px); box-shadow: 0 16px 40px rgba(193,127,62,0.4); background: #D4924A; }
+    .cta-email { margin-top: 56px; font-size: 13px; color: #555; letter-spacing: 0.04em; }
+    .cta-email a { color: var(--grey-400); text-decoration: underline; text-underline-offset: 3px; transition: color 0.2s; }
+    .cta-email a:hover { color: var(--white); }
+
+    /* FOOTER */
+    footer {
+      background: var(--black); border-top: 1px solid #161616;
+      padding: 32px 40px; display: flex; justify-content: space-between; align-items: center;
+    }
+    .footer-logo { font-size: 13px; font-weight: 700; color: var(--white); letter-spacing: 0.04em; }
+    .footer-copy { font-size: 11px; color: #444; letter-spacing: 0.06em; }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: #444; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--white); }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      :root { --section-pad: 80px; }
+      nav { padding: 20px 24px; }
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      .nav-links.open {
+        display: flex; flex-direction: column; position: fixed; inset: 0;
+        background: var(--white); align-items: center; justify-content: center; gap: 32px; z-index: 99;
+      }
+      .nav-links.open a { font-size: 20px; letter-spacing: 0.04em; }
+      .container { padding: 0 24px; }
+      .divider { margin: 0 24px; }
+      .hero-actions { margin-left: 0; }
+      .hero-line { display: none; }
+      .hero-stats { display: none; }
+      .hero-scroll-hint { display: none; }
+      .hero-name { font-size: clamp(2.8rem, 12vw, 5rem); }
+      .hero-role { font-size: clamp(2.4rem, 10vw, 4.5rem); }
+      .about-grid { grid-template-columns: 1fr; gap: 48px; }
+      .about-left { position: static; }
+      .about-portrait { max-width: 280px; aspect-ratio: 1; }
+      .impact-header { flex-direction: column; align-items: flex-start; gap: 24px; }
+      .impact-grid { grid-template-columns: 1fr; }
+      .impact-card-wide { grid-column: span 1; }
+      .timeline-item { grid-template-columns: 1fr; gap: 12px; }
+      .timeline-connector { display: none; }
+      .timeline-period { padding-top: 0; }
+      .case-context { padding-left: 0; }
+      .case-pra { grid-template-columns: 1fr; gap: 28px; padding-left: 0; }
+      .case-bottom { padding-left: 0; }
+      .case-diagram { margin-left: 0; padding: 24px 18px; }
+      .framework-grid, .pillar-grid, .notes-grid { grid-template-columns: 1fr; }
+      .step-flow { grid-template-columns: 1fr; }
+      .step-card:not(:last-child)::after { display: none; }
+      .flow-pill:not(:last-child)::after { display: none; }
+      .result-banner { flex-direction: column; align-items: flex-start; }
+      .case-top { flex-direction: column; gap: 12px; }
+      .case-number { min-width: auto; }
+      .skills-layout { grid-template-columns: 1fr; gap: 56px; }
+      .skills-right { position: static; }
+      .tools-list { grid-template-columns: repeat(2, 1fr); }
+      footer { flex-direction: column; gap: 16px; text-align: center; }
+      .footer-links { flex-wrap: wrap; justify-content: center; }
+    }
+    @media (max-width: 600px) {
+      .case-result-highlight { flex-direction: column; gap: 4px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <div class="nav-logo">AR.</div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#impact">Impact</a></li>
+      <li><a href="#cases">Work</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#cta" class="nav-cta">Let's Talk</a></li>
+    </ul>
+    <div class="nav-hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg-circle hero-bg-circle-1"></div>
+    <div class="hero-bg-circle hero-bg-circle-2"></div>
+    <div class="hero-line"></div>
+
+    <div class="container hero-inner">
+      <div class="hero-label reveal">
+        <span class="label">Marketing Manager · Growth & Performance Marketing</span>
+      </div>
+
+      <h1 class="hero-name reveal reveal-delay-1">Aman<br/>Raj</h1>
+
+      <p class="hero-role reveal reveal-delay-2">
+        Building<br/>
+        <em class="serif-italic">growth engines</em><br/>
+        that scale.
+      </p>
+
+      <p class="hero-subtext reveal reveal-delay-3">
+        I help teams turn market focus, acquisition, funnel quality, and sales enablement into measurable revenue growth.
+      </p>
+
+      <div class="hero-actions reveal reveal-delay-4">
+        <a href="#cases" class="btn-primary">
+          View My Work
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="#cta" class="btn-secondary">
+          Let's Connect
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-scroll-hint"><span>Scroll</span><div class="scroll-dot"></div></div>
+
+    <div class="hero-stats reveal reveal-delay-5">
+      <div class="hero-stat-item">
+        <div class="hero-stat-number">5+</div>
+        <div class="hero-stat-label">Years Growth</div>
+      </div>
+      <div class="hero-stat-item">
+        <div class="hero-stat-number">₹3Cr+</div>
+        <div class="hero-stat-label">Budget Managed</div>
+      </div>
+      <div class="hero-stat-item">
+        <div class="hero-stat-number">₹30Cr+</div>
+        <div class="hero-stat-label">Added to Pipeline</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ABOUT -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="about-grid">
+
+        <div class="about-left">
+          <div class="about-portrait" style="background:var(--grey-100);">
+            <img src="https://lh3.googleusercontent.com/d/1f0XiVi9UxlUuJKp54S_Gw3KuHyaNioDG" alt="Aman Raj" style="width:100%;height:100%;object-fit:cover;border-radius:4px;" />
+          </div>
+          <div class="years-badge reveal">
+            <span class="num">5</span>
+            <span class="suffix">yrs building B2B<br/>& performance growth</span>
+          </div>
+        </div>
+
+        <div class="about-body">
+          <div class="about-label reveal"><span class="label">About</span></div>
+
+          <h2 class="about-tagline reveal reveal-delay-1">
+            I don't just run campaigns.<br/>
+            I build <span class="serif-italic">revenue engines.</span>
+          </h2>
+
+          <p class="reveal reveal-delay-2">
+            5+ years across <strong>B2B GTM, demand generation, performance marketing, funnel optimization, lifecycle engagement, and sales enablement</strong>. I work with leadership to define ICPs, sharpen positioning, and convert marketing activity into qualified pipeline.
+          </p>
+
+          <div class="highlight-line reveal reveal-delay-3">
+            "My focus is simple: improve unit economics, test fast, and make every growth motion measurable."
+          </div>
+
+          <p class="reveal reveal-delay-4">
+            Across Quick Clean, AccountX, and Bertrand & Bernard, I've built qualification journeys, managed multi-crore budgets, scaled outbound across markets, and improved funnel conversion.
+          </p>
+
+          <p class="reveal reveal-delay-5">
+            Founding Meal House added practical depth: <strong>customer pain, pricing, operations, retention, and execution discipline</strong>. It shaped how I think about growth beyond campaigns.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- IMPACT & EXPERIENCE -->
+  <section id="impact" class="section">
+    <div class="container">
+
+      <div class="impact-header reveal">
+        <div>
+          <div class="label" style="margin-bottom:20px">Impact & Experience</div>
+          <h2 class="section-title" style="color:var(--white)">
+            Numbers that<br/><span class="serif-italic" style="color:var(--accent)">speak for themselves.</span>
+          </h2>
+        </div>
+        <p style="max-width:380px;font-size:14px;line-height:1.75;color:#666;text-align:right">
+          Five years of translating market insight into acquisition systems, better funnel quality, and qualified pipeline across service, e-commerce, and enterprise environments.
+        </p>
+      </div>
+
+      <div class="impact-grid">
+
+        <div class="impact-card reveal">
+          <div class="impact-number">40<span class="accent">%</span></div>
+          <div class="impact-metric">MQL to SQL Conversion Improvement</div>
+          <p class="impact-desc">Rebuilt ICP, segmentation, qualification journeys, and campaign messaging at Quick Clean to improve lead quality and sales readiness.</p>
+        </div>
+
+        <div class="impact-card reveal reveal-delay-1">
+          <div class="impact-number">2.5<span class="accent">×</span></div>
+          <div class="impact-metric">ROAS on E-commerce Campaigns</div>
+          <p class="impact-desc">Improved campaign efficiency and website conversion journeys across Shopify and performance-led e-commerce projects.</p>
+        </div>
+
+        <div class="impact-card reveal reveal-delay-2">
+          <div class="impact-number">30–40</div>
+          <div class="impact-metric">Qualified Leads Per Quarter</div>
+          <p class="impact-desc">Built targeted B2B acquisition motions for hospitality and healthcare, generating 30–40 qualified leads per quarter tied to an estimated ₹5Cr opportunity value.</p>
+        </div>
+
+        <div class="impact-card impact-card-wide reveal reveal-delay-3">
+          <div style="display:flex;gap:60px;flex-wrap:wrap">
+            <div>
+              <div class="impact-number">70–80</div>
+              <div class="impact-metric">Monthly Qualified Leads</div>
+              <p class="impact-desc">Built outbound acquisition systems from scratch at AccountX using ICP research, country-wise messaging, Sales Navigator, and cold email.</p>
+            </div>
+            <div>
+              <div class="impact-number"><span class="accent">₹</span>3Cr+</div>
+              <div class="impact-metric">Marketing Budget Managed</div>
+              <p class="impact-desc">Managed and influenced marketing budgets across paid campaigns, events, brand visibility, and growth initiatives.</p>
+            </div>
+            <div>
+              <div class="impact-number"><span class="accent">₹</span>30Cr+</div>
+              <div class="impact-metric">Added to Pipeline</div>
+              <p class="impact-desc">Supported pipeline creation across B2B growth programs, enterprise targeting, and outbound systems with an estimated ₹30Cr+ added opportunity value.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="impact-card reveal reveal-delay-4">
+          <div class="impact-number"><span class="accent">~$</span>20K</div>
+          <div class="impact-metric">Monthly Ad Spend Managed</div>
+          <p class="impact-desc">Managed Meta performance budgets across e-commerce projects with focus on CPA, ROAS, CTR, and conversion rate.</p>
+        </div>
+
+      </div>
+
+      <!-- CAREER TIMELINE -->
+      <div class="impact-timeline">
+        <div class="timeline-label reveal"><span class="label">Career Timeline</span></div>
+
+        <div class="timeline-items">
+
+          <div class="timeline-item reveal">
+            <div class="timeline-period">Jun 2024: Feb 2026</div>
+            <div class="timeline-connector"></div>
+            <div class="timeline-content">
+              <div class="timeline-role">Marketing & Communication Manager</div>
+              <div class="timeline-company">Quick Clean Laundry Systems</div>
+              <p class="timeline-desc">Defined ICP, GTM, marketing strategy, segmentation, and multi-channel acquisition with leadership. Built messaging around zero-capex laundry operations, sustainability, and infection-control for hospitality and healthcare segments. Improved MQL to SQL conversion by 40%, generated 30–40 qualified leads per quarter tied to an estimated ₹5Cr opportunity value, and supported enterprise pipeline through LinkedIn, email, website, events, and sales enablement.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal">
+            <div class="timeline-period">Dec 2023: Apr 2024</div>
+            <div class="timeline-connector"></div>
+            <div class="timeline-content">
+              <div class="timeline-role">Growth & Communication Manager</div>
+              <div class="timeline-company">AccountX</div>
+              <p class="timeline-desc">Built the sales and marketing engine from scratch: website, messaging, proposals, pitch decks, ICP research, country-wise positioning, Sales Navigator, and outbound systems across UK, US, UAE, and Australia. Scaled outbound to 70–80 qualified leads monthly.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal">
+            <div class="timeline-period">Aug 2021: Oct 2023</div>
+            <div class="timeline-connector"></div>
+            <div class="timeline-content">
+              <div class="timeline-role">Digital Marketing Manager</div>
+              <div class="timeline-company">Bertrand & Bernard LLP</div>
+              <p class="timeline-desc">Managed performance marketing for e-commerce and Shopify-led businesses. Worked on Meta campaigns, analytics, website optimization, landing pages, A/B testing, CTR improvement, CPA reduction, and ROAS growth. Achieved up to 2.5× ROAS on performance-led campaigns.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal">
+            <div class="timeline-period">Aug 2020: Aug 2021</div>
+            <div class="timeline-connector"></div>
+            <div class="timeline-content">
+              <div class="timeline-role">Founder</div>
+              <div class="timeline-company">Meal House</div>
+              <p class="timeline-desc">Founded and operated a B2B food services business serving recurring corporate clients. Built the offer, handled client acquisition, vendor coordination, operations, logistics, and repeat service delivery. This experience shaped a deep understanding of customer pain points, pricing, retention, and real business execution.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- CASE STUDIES -->
+  <section id="cases" class="section">
+    <div class="container">
+
+      <div class="cases-header reveal">
+        <div class="label" style="margin-bottom:20px">Selected Work</div>
+        <h2 class="section-title">
+          Case studies in<br/><span class="serif-italic">high-impact growth.</span>
+        </h2>
+      </div>
+
+      <!-- CASE 01: QUICK CLEAN -->
+      <div class="case-item reveal">
+        <div class="case-top">
+          <div class="case-number">01</div>
+          <h3 class="case-title">Rebuilding ICP, GTM & Funnel Quality<br/>for Enterprise Laundry Growth</h3>
+        </div>
+        <p class="case-context">Quick Clean serves hospitality and healthcare with on-premise commercial laundry solutions. The priority was to sharpen ICP, structure GTM, and build a multi-channel engine for high-value enterprise pipeline.</p>
+        <div class="case-pra">
+          <div class="case-pra-block">
+            <h4>Growth Challenge</h4>
+            <ul>
+              <li>Strong operations, but ICP and marketing motion needed sharper definition</li>
+              <li>Enterprise accounts had long cycles and multiple decision-makers</li>
+              <li>Messaging needed to differ across greenfield hotels, brownfield hotels, greenfield hospitals, and brownfield hospitals</li>
+              <li>Each segment had different pain points, objections, and buying triggers</li>
+            </ul>
+          </div>
+          <div class="case-pra-block">
+            <h4>Strategy</h4>
+            <ul>
+              <li>Redefined ICP using property type, stage, size, laundry volume, current setup, cost pressure, hygiene needs, and readiness to shift</li>
+              <li>Prioritized hotels with 150+ rooms and hospitals with 250+ beds/rooms where laundry volume justified a managed model</li>
+              <li>Built 4 core segments: greenfield hotels, brownfield hotels, greenfield hospitals, and brownfield hospitals</li>
+              <li>Created different messaging for zero-capex setup, pay-per-kg model, operational reliability, sustainability, and infection-control workflows</li>
+              <li>Built a multi-channel engine across email, calling, LinkedIn, website, WhatsApp, and sales enablement</li>
+              <li>Used industry events like Hotelier India, Global Design & Development Confluence, Hotelier India Awards, and GM Summit to build visibility and direct access to decision-makers</li>
+            </ul>
+          </div>
+          <div class="case-pra-block">
+            <h4>Business Impact</h4>
+            <ul>
+              <li>Improved MQL to SQL conversion by 40%</li>
+              <li>Created clearer segmentation and qualification journeys</li>
+              <li>Improved sales readiness through better messaging and collaterals</li>
+              <li>Improved CAC efficiency by aligning targeting, messaging, and channel strategy</li>
+              <li>Built stronger conversations with hotel owners, GMs, hospitality leaders, and healthcare stakeholders</li>
+              <li>Supported consistent high-value pipeline through multi-channel marketing</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="case-diagram">
+          <div class="diagram-title">Quick Clean growth framework</div>
+          <div class="framework-grid">
+            <div class="framework-card">
+              <div class="framework-kicker">ICP</div>
+              <h5>Who was targeted</h5>
+              <p>Large hotels with 150+ rooms and hospitals with 250+ beds where laundry volume justified a managed model.</p>
+            </div>
+            <div class="framework-card">
+              <div class="framework-kicker">Messaging</div>
+              <h5>What the pitch focused on</h5>
+              <p>Zero-capex setup, operational reliability, sustainability, better hygiene, and infection-control readiness.</p>
+            </div>
+            <div class="framework-card">
+              <div class="framework-kicker">Channels</div>
+              <h5>How demand was created</h5>
+              <p>Email, LinkedIn, events, website, and WhatsApp were used to open conversations and support follow-ups.</p>
+            </div>
+            <div class="framework-card">
+              <div class="framework-kicker">Qualification</div>
+              <h5>How leads were filtered</h5>
+              <p>Accounts were qualified using stakeholder fit, current setup, volume potential, and willingness to shift.</p>
+            </div>
+          </div>
+          <div class="flow-strip">
+            <div class="flow-pill">ICP</div>
+            <div class="flow-pill">Messaging</div>
+            <div class="flow-pill">Channels</div>
+            <div class="flow-pill">Qualification</div>
+            <div class="flow-pill highlight">Pipeline</div>
+          </div>
+        </div>
+        <div class="case-bottom">
+          <div class="case-result-highlight">
+            <span class="big-num">40%</span>
+            <span class="big-label">MQL to SQL conversion<br/>improvement</span>
+          </div>
+          <div class="metric-chips">
+            <span class="metric-chip"><span class="chip-dot"></span>4 ICP segments built</span>
+            <span class="metric-chip"><span class="chip-dot"></span>₹3Cr+ budget exposure</span>
+            <span class="metric-chip"><span class="chip-dot"></span>30–40 qualified leads/quarter</span>
+            <span class="metric-chip"><span class="chip-dot"></span>Hospitality + Healthcare</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- CASE 02: ACCOUNTX -->
+      <div class="case-item reveal">
+        <div class="case-top">
+          <div class="case-number">02</div>
+          <h3 class="case-title">Building a Global Sales & Marketing<br/>Engine from Scratch</h3>
+        </div>
+        <p class="case-context">AccountX was a new CA, accounting, and compliance services firm expanding globally. The priority was to build the sales and marketing foundation from scratch, then adapt messaging by market.</p>
+        <div class="case-pra">
+          <div class="case-pra-block">
+            <h4>Growth Challenge</h4>
+            <ul>
+              <li>No structured acquisition system, messaging framework, or outbound process</li>
+              <li>The offer needed market-specific positioning across accounting, tax, and compliance needs</li>
+              <li>Needed credibility-building assets like website content, pitch decks, and proposals</li>
+              <li>Target markets included UK, US, UAE, Australia, and others</li>
+            </ul>
+          </div>
+          <div class="case-pra-block">
+            <h4>Strategy</h4>
+            <ul>
+              <li>Built the acquisition foundation: website, service positioning, proposals, and pitch decks</li>
+              <li>Researched ICPs across markets and created country-wise messaging</li>
+              <li>Built outbound campaigns using LinkedIn Sales Navigator and cold email</li>
+              <li>Created different angles for founders, finance teams, and SMEs seeking outsourced accounting</li>
+              <li>Supported inbound growth through SEO, LinkedIn content, and website improvements</li>
+            </ul>
+          </div>
+          <div class="case-pra-block">
+            <h4>Business Impact</h4>
+            <ul>
+              <li>Scaled outbound to 70–80 qualified leads per month</li>
+              <li>Built repeatable outbound systems</li>
+              <li>Created a stronger global positioning foundation</li>
+              <li>Improved sales conversations through better proposals and collaterals</li>
+              <li>Helped shift from founder-led selling to a structured acquisition engine</li>
+            </ul>
+          </div>
+        </div>
+        <div class="case-diagram">
+          <div class="diagram-title">AccountX outbound buildout</div>
+          <div class="step-flow">
+            <div class="step-card">
+              <div class="step-number">1</div>
+              <h5>ICP research</h5>
+              <p>Mapped founders, SMEs, and finance teams needing outsourced accounting support.</p>
+            </div>
+            <div class="step-card">
+              <div class="step-number">2</div>
+              <h5>Market positioning</h5>
+              <p>Adapted offers and messaging for UK, US, UAE, Australia, and other target markets.</p>
+            </div>
+            <div class="step-card">
+              <div class="step-number">3</div>
+              <h5>Sales assets</h5>
+              <p>Built website pages, proposals, pitch decks, and support collateral for credibility.</p>
+            </div>
+            <div class="step-card">
+              <div class="step-number">4</div>
+              <h5>Outbound engine</h5>
+              <p>Used Sales Navigator and cold email to launch a repeatable lead generation motion.</p>
+            </div>
+            <div class="step-card">
+              <div class="step-number">5</div>
+              <h5>Lead flow</h5>
+              <p>Turned responses into qualified conversations using better targeting and messaging.</p>
+            </div>
+            <div class="step-card highlight">
+              <div class="step-number">6</div>
+              <h5>Pipeline</h5>
+              <p>Built a structured outbound system that produced 70 to 80 qualified leads each month.</p>
+            </div>
+          </div>
+        </div>
+        <div class="case-bottom">
+          <div class="case-result-highlight">
+            <span class="big-num">70–80</span>
+            <span class="big-label">qualified leads<br/>per month</span>
+          </div>
+          <div class="metric-chips">
+            <span class="metric-chip"><span class="chip-dot"></span>Website + messaging built</span>
+            <span class="metric-chip"><span class="chip-dot"></span>Sales Navigator + cold email</span>
+            <span class="metric-chip"><span class="chip-dot"></span>UK, US, UAE, Australia</span>
+            <span class="metric-chip"><span class="chip-dot"></span>Proposals + pitch decks</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- CASE 03: BERTRAND & BERNARD -->
+      <div class="case-item reveal">
+        <div class="case-top">
+          <div class="case-number">03</div>
+          <h3 class="case-title">Improving Paid Performance & Conversion<br/>Journeys for E-commerce Brands</h3>
+        </div>
+        <p class="case-context">E-commerce and Shopify-led brands needed stronger performance across paid traffic, landing pages, and conversion journeys, with a clear focus on profitable revenue.</p>
+        <div class="case-pra">
+          <div class="case-pra-block">
+            <h4>Growth Challenge</h4>
+            <ul>
+              <li>Campaigns needed stronger tracking, creative testing, funnel optimization, and CPA control</li>
+              <li>Shopify websites had conversion drop-offs and underperforming landing pages</li>
+              <li>The goal was to improve ad efficiency and turn paid traffic into profitable revenue</li>
+            </ul>
+          </div>
+          <div class="case-pra-block">
+            <h4>Strategy</h4>
+            <ul>
+              <li>Managed Meta performance campaigns with ~$20K monthly ad spend</li>
+              <li>Worked on campaign structure, audience testing, creative testing, CTR improvement, and CPA reduction</li>
+              <li>Improved Shopify website journeys and landing pages</li>
+              <li>Ran A/B testing across pages, messaging, creatives, and funnel flows</li>
+              <li>Used analytics to identify drop-offs and conversion issues</li>
+            </ul>
+          </div>
+          <div class="case-pra-block">
+            <h4>Business Impact</h4>
+            <ul>
+              <li>Achieved up to 2.5× ROAS on performance-led campaigns</li>
+              <li>Reduced CPA and improved campaign efficiency</li>
+              <li>Improved paid performance and website conversion quality</li>
+              <li>Helped e-commerce brands scale acquisition more profitably</li>
+            </ul>
+          </div>
+        </div>
+        <div class="case-diagram">
+          <div class="diagram-title">Performance growth model</div>
+          <div class="pillar-grid">
+            <div class="pillar-card">
+              <h5>Creative</h5>
+              <div class="pillar-line"></div>
+              <p>Tested hooks, formats, offers, and audience angles to improve CTR and traffic quality.</p>
+            </div>
+            <div class="pillar-card">
+              <h5>Funnel</h5>
+              <div class="pillar-line"></div>
+              <p>Improved landing pages and Shopify flows to reduce drop-offs and lift conversion quality.</p>
+            </div>
+            <div class="pillar-card">
+              <h5>Analytics</h5>
+              <div class="pillar-line"></div>
+              <p>Tracked CPA, ROAS, CTR, and page performance to guide every testing decision.</p>
+            </div>
+          </div>
+          <div class="result-banner">
+            <div>
+              <strong>Three levers working together</strong>
+              <span>Creative testing, funnel updates, and analytics review created a tighter performance loop across paid campaigns.</span>
+            </div>
+            <div class="result-chip">Up to 2.5x ROAS</div>
+          </div>
+        </div>
+        <div class="case-bottom">
+          <div class="case-result-highlight">
+            <span class="big-num">2.5×</span>
+            <span class="big-label">ROAS achieved on<br/>performance campaigns</span>
+          </div>
+          <div class="metric-chips">
+            <span class="metric-chip"><span class="chip-dot"></span>~$20K/month ad spend</span>
+            <span class="metric-chip"><span class="chip-dot"></span>Meta Ads</span>
+            <span class="metric-chip"><span class="chip-dot"></span>Shopify CRO</span>
+            <span class="metric-chip"><span class="chip-dot"></span>A/B testing</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- CASE 04: MEAL HOUSE -->
+      <div class="case-item reveal">
+        <div class="case-top">
+          <div class="case-number">04</div>
+          <h3 class="case-title">Building a B2B Food Services<br/>Business from Zero</h3>
+        </div>
+        <p class="case-context">Corporate teams needed reliable recurring meal service. The opportunity was not just food delivery. It was trust, consistency, pricing, logistics, and repeat execution.</p>
+        <div class="case-pra">
+          <div class="case-pra-block">
+            <h4>Growth Challenge</h4>
+            <ul>
+              <li>Built a business from zero with no existing infrastructure, brand, or customer base</li>
+              <li>Needed to establish trust and reliability with B2B clients for recurring meal services</li>
+              <li>Required balancing operations, logistics, vendor coordination, and client expectations simultaneously</li>
+            </ul>
+          </div>
+          <div class="case-pra-block">
+            <h4>Strategy</h4>
+            <ul>
+              <li>Started with home-cooked delivery and moved toward a structured kitchen/shop-led setup</li>
+              <li>Built the offer for B2B clients and focused on recurring monthly business</li>
+              <li>Handled client acquisition, vendor coordination, food preparation workflows, and delivery operations</li>
+              <li>Served 5 recurring B2B clients with consistent service quality</li>
+            </ul>
+          </div>
+          <div class="case-pra-block">
+            <h4>Business Impact</h4>
+            <ul>
+              <li>Built recurring client relationships and a repeat monthly service model</li>
+              <li>Gained founder-level experience in customer pain discovery, operations, and retention</li>
+              <li>Strengthened ability to think beyond campaigns and understand how businesses actually work</li>
+            </ul>
+          </div>
+        </div>
+        <div class="case-diagram">
+          <div class="diagram-title">Founder execution system</div>
+          <div class="step-flow">
+            <div class="step-card">
+              <div class="step-number">1</div>
+              <h5>Need</h5>
+              <p>Spotted recurring B2B demand for reliable meal service.</p>
+            </div>
+            <div class="step-card">
+              <div class="step-number">2</div>
+              <h5>Offer</h5>
+              <p>Structured the offer around meal plans, pricing, and repeat monthly service.</p>
+            </div>
+            <div class="step-card">
+              <div class="step-number">3</div>
+              <h5>Operations</h5>
+              <p>Handled sourcing, kitchen setup, coordination, and day-to-day execution.</p>
+            </div>
+            <div class="step-card">
+              <div class="step-number">4</div>
+              <h5>Delivery</h5>
+              <p>Kept fulfilment consistent so clients trusted the service and stayed on.</p>
+            </div>
+            <div class="step-card">
+              <div class="step-number">5</div>
+              <h5>Repeat business</h5>
+              <p>Built recurring relationships with 5 B2B clients instead of chasing one-off orders.</p>
+            </div>
+            <div class="step-card highlight">
+              <div class="step-number">6</div>
+              <h5>Retention learning</h5>
+              <p>Learned pricing, quality control, and retention from real operating pressure.</p>
+            </div>
+          </div>
+          <div class="notes-grid">
+            <div class="mini-note"><strong>Founder mindset</strong><p>Added business-building depth beyond campaign execution.</p></div>
+            <div class="mini-note"><strong>Operational clarity</strong><p>Built practical understanding of delivery, margins, and service quality.</p></div>
+            <div class="mini-note"><strong>Why it matters</strong><p>Sharpened how Aman thinks about customer pain, execution, and retention.</p></div>
+          </div>
+        </div>
+        <div class="case-bottom">
+          <div class="case-result-highlight">
+            <span class="big-num">5</span>
+            <span class="big-label">recurring B2B<br/>clients served</span>
+          </div>
+          <div class="metric-chips">
+            <span class="metric-chip"><span class="chip-dot"></span>Founder-led growth</span>
+            <span class="metric-chip"><span class="chip-dot"></span>Operations + logistics</span>
+            <span class="metric-chip"><span class="chip-dot"></span>Repeat monthly model</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- SKILLS -->
+  <section id="skills" class="section">
+    <div class="container">
+      <div class="skills-layout">
+
+        <div class="skills-left">
+          <div class="label reveal" style="margin-bottom:20px">Expertise</div>
+          <h2 class="section-title reveal reveal-delay-1">
+            Full-stack growth.<br/>
+            <span class="serif-italic">Every layer.</span>
+          </h2>
+          <p class="skills-desc reveal reveal-delay-2">
+            From ICP definition and GTM strategy to Meta Ads execution and conversion funnel optimization: covering the full spectrum of growth with a focus on pipeline quality and revenue impact.
+          </p>
+
+          <div class="skill-categories reveal reveal-delay-3">
+
+            <div class="skill-category">
+              <div class="skill-cat-header">
+                <span class="skill-cat-name">GTM & Growth Strategy</span>
+                <span class="skill-cat-count">6 skills</span>
+              </div>
+              <div class="skill-tags">
+                <span class="skill-tag">ICP Definition</span>
+                <span class="skill-tag">GTM Strategy</span>
+                <span class="skill-tag">Demand Generation</span>
+                <span class="skill-tag">Pipeline Growth</span>
+                <span class="skill-tag">Sales Enablement</span>
+                <span class="skill-tag">Revenue Optimization</span>
+              </div>
+            </div>
+
+            <div class="skill-category">
+              <div class="skill-cat-header">
+                <span class="skill-cat-name">Acquisition & Performance</span>
+                <span class="skill-cat-count">7 skills</span>
+              </div>
+              <div class="skill-tags">
+                <span class="skill-tag">Meta Ads</span>
+                <span class="skill-tag">Google Ads</span>
+                <span class="skill-tag">LinkedIn Outreach</span>
+                <span class="skill-tag">Cold Email</span>
+                <span class="skill-tag">Campaign Testing</span>
+                <span class="skill-tag">CRO</span>
+                <span class="skill-tag">Funnel Optimization</span>
+              </div>
+            </div>
+
+            <div class="skill-category">
+              <div class="skill-cat-header">
+                <span class="skill-cat-name">Lifecycle & Sales Engine</span>
+                <span class="skill-cat-count">6 skills</span>
+              </div>
+              <div class="skill-tags">
+                <span class="skill-tag">Email Marketing</span>
+                <span class="skill-tag">Lead Nurturing</span>
+                <span class="skill-tag">WhatsApp Automation</span>
+                <span class="skill-tag">CRM Journeys</span>
+                <span class="skill-tag">Qualification Flows</span>
+                <span class="skill-tag">User Engagement</span>
+              </div>
+            </div>
+
+            <div class="skill-category">
+              <div class="skill-cat-header">
+                <span class="skill-cat-name">Website & Conversion</span>
+                <span class="skill-cat-count">6 skills</span>
+              </div>
+              <div class="skill-tags">
+                <span class="skill-tag">Shopify</span>
+                <span class="skill-tag">Landing Pages</span>
+                <span class="skill-tag">Website Optimization</span>
+                <span class="skill-tag">Analytics</span>
+                <span class="skill-tag">A/B Testing</span>
+                <span class="skill-tag">Conversion Funnels</span>
+              </div>
+            </div>
+
+            <div class="skill-category">
+              <div class="skill-cat-header">
+                <span class="skill-cat-name">Brand & Communication</span>
+                <span class="skill-cat-count">6 skills</span>
+              </div>
+              <div class="skill-tags">
+                <span class="skill-tag">Positioning</span>
+                <span class="skill-tag">Messaging</span>
+                <span class="skill-tag">Proposals</span>
+                <span class="skill-tag">Pitch Decks</span>
+                <span class="skill-tag">Case Studies</span>
+                <span class="skill-tag">Content Marketing</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="skills-right">
+
+          <div class="proficiency-bars reveal">
+            <div class="label" style="margin-bottom:28px">Core Strengths</div>
+
+            <div class="prof-item">
+              <div class="prof-header"><span class="prof-name">GTM Strategy & ICP</span><span class="prof-pct">92%</span></div>
+              <div class="prof-track"><div class="prof-fill" style="--target-width:92%"></div></div>
+            </div>
+            <div class="prof-item">
+              <div class="prof-header"><span class="prof-name">Demand Generation</span><span class="prof-pct">90%</span></div>
+              <div class="prof-track"><div class="prof-fill" style="--target-width:90%"></div></div>
+            </div>
+            <div class="prof-item">
+              <div class="prof-header"><span class="prof-name">Performance Marketing</span><span class="prof-pct">88%</span></div>
+              <div class="prof-track"><div class="prof-fill" style="--target-width:88%"></div></div>
+            </div>
+            <div class="prof-item">
+              <div class="prof-header"><span class="prof-name">Funnel & Conversion</span><span class="prof-pct">86%</span></div>
+              <div class="prof-track"><div class="prof-fill" style="--target-width:86%"></div></div>
+            </div>
+            <div class="prof-item">
+              <div class="prof-header"><span class="prof-name">Sales Enablement</span><span class="prof-pct">85%</span></div>
+              <div class="prof-track"><div class="prof-fill" style="--target-width:85%"></div></div>
+            </div>
+            <div class="prof-item">
+              <div class="prof-header"><span class="prof-name">Brand & Messaging</span><span class="prof-pct">82%</span></div>
+              <div class="prof-track"><div class="prof-fill" style="--target-width:82%"></div></div>
+            </div>
+          </div></div>
+
+          <div class="tools-grid reveal reveal-delay-2">
+            <span class="label">Tools & Platforms</span>
+            <div class="tools-list">
+              <div class="tool-chip">Meta Ads</div>
+              <div class="tool-chip">Google Ads</div>
+              <div class="tool-chip">Instantly.ai</div>
+              <div class="tool-chip">Apollo.io</div>
+              <div class="tool-chip">Sales Navigator</div>
+              <div class="tool-chip">GA4</div>
+              <div class="tool-chip">SEMrush</div>
+              <div class="tool-chip">Zapier</div>
+              <div class="tool-chip">Shopify</div>
+              <div class="tool-chip">CRM Tools</div>
+              <div class="tool-chip">AI Agents</div>
+              <div class="tool-chip">WhatsApp Auto</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- CTA -->
+  <section id="cta" class="section">
+    <div class="cta-bg-ring cta-bg-ring-1"></div>
+    <div class="cta-bg-ring cta-bg-ring-2"></div>
+    <div class="cta-bg-ring cta-bg-ring-3"></div>
+
+    <div class="container">
+      <div class="cta-inner">
+
+        <div class="cta-eyebrow reveal"><span class="label">Let's Build Something</span></div>
+
+        <h2 class="cta-heading reveal reveal-delay-1">
+          Ready to turn your<br/>
+          marketing into a <span class="serif-italic" style="color:var(--accent)">growth engine?</span>
+        </h2>
+
+        <p class="cta-sub reveal reveal-delay-2">
+          Whether you're building demand generation, improving funnel quality,<br/>
+          scaling acquisition, or turning marketing into a stronger sales engine: let's talk.
+        </p>
+
+        <div class="cta-actions reveal reveal-delay-3">
+          <a href="mailto:amanwalker9@gmail.com" class="btn-accent">
+            Send me an email
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="https://linkedin.com/in/amanrajgtm" target="_blank" class="btn-outline">
+            View LinkedIn
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+
+        <p class="cta-email reveal reveal-delay-4">
+          Or reach me directly at <a href="mailto:amanwalker9@gmail.com">amanwalker9@gmail.com</a>
+        </p>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">Aman Raj</div>
+    <div class="footer-copy">© 2026 · All rights reserved</div>
+    <div class="footer-links">
+      <a href="https://linkedin.com/in/amanrajgtm" target="_blank">LinkedIn</a>
+      <a href="mailto:amanwalker9@gmail.com">Email</a>
+      <a href="#hero">Back to top ↑</a>
+    </div>
+  </footer>
+
+
+  <script>
+    const navbar    = document.getElementById('navbar');
+    const hamburger = document.getElementById('hamburger');
+    const navLinks  = document.getElementById('navLinks');
+
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 40);
+    });
+
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+      const spans = hamburger.querySelectorAll('span');
+      const isOpen = navLinks.classList.contains('open');
+      spans[0].style.transform = isOpen ? 'translateY(6.5px) rotate(45deg)' : '';
+      spans[1].style.opacity   = isOpen ? '0' : '1';
+      spans[2].style.transform = isOpen ? 'translateY(-6.5px) rotate(-45deg)' : '';
+    });
+
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        const spans = hamburger.querySelectorAll('span');
+        spans[0].style.transform = '';
+        spans[1].style.opacity   = '1';
+        spans[2].style.transform = '';
+      });
+    });
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    const barObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.querySelectorAll('.prof-fill').forEach((fill, i) => {
+            setTimeout(() => fill.classList.add('animated'), i * 100);
+          });
+          barObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    const profSection = document.querySelector('.proficiency-bars');
+    if (profSection) barObserver.observe(profSection);
+
+    const circle1 = document.querySelector('.hero-bg-circle-1');
+    const circle2 = document.querySelector('.hero-bg-circle-2');
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      if (circle1) circle1.style.transform = `translateY(${y * 0.15}px)`;
+      if (circle2) circle2.style.transform = `translateY(${y * -0.08}px)`;
+    }, { passive: true });
+
+    const sections = document.querySelectorAll('section[id]');
+    const navAnchorLinks = document.querySelectorAll('.nav-links a:not(.nav-cta)');
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navAnchorLinks.forEach(a => {
+            a.style.color = a.getAttribute('href') === `#${entry.target.id}` ? 'var(--black)' : '';
+          });
+        }
+      });
+    }, { threshold: 0.5 });
+    sections.forEach(s => sectionObserver.observe(s));
+  </script>
+
+</body>
+</html>
