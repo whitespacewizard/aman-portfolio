@@ -2811,15 +2811,17 @@
     /* FAB button */
     #ruth-fab {
       position: fixed; bottom: 28px; right: 28px;
-      width: 62px; height: 62px; border-radius: 50%;
+      width: 68px; height: 68px; border-radius: 50%;
       background: #000; border: none; cursor: pointer;
       box-shadow: 0 4px 20px rgba(0,0,0,0.22);
       display: flex; align-items: center; justify-content: center;
-      transition: transform 0.2s, box-shadow 0.2s, opacity 0.35s;
+      transition: transform 0.2s, box-shadow 0.2s, opacity 0.35s, background 0.4s;
       z-index: 9000; opacity: 0; pointer-events: none;
     }
     #ruth-fab.ruth-fab-ready { opacity: 1; pointer-events: all; }
     #ruth-fab.ruth-fab-ready:hover { transform: scale(1.08); box-shadow: 0 6px 28px rgba(0,0,0,0.32); }
+    /* White circle on dark sections */
+    #ruth-fab.ruth-fab-light { background: #fff; box-shadow: 0 4px 24px rgba(0,0,0,0.28); }
     #ruth-notif {
       position: absolute; top: -3px; right: -3px;
       width: 17px; height: 17px; border-radius: 50%;
@@ -2829,7 +2831,7 @@
     }
     /* Chat window */
     #ruth-window {
-      position: fixed; bottom: 102px; right: 28px;
+      position: fixed; bottom: 108px; right: 28px;
       width: 348px; max-height: 510px;
       background: #fff; border-radius: 18px;
       box-shadow: 0 8px 40px rgba(0,0,0,0.16);
@@ -2912,7 +2914,7 @@
     }
     #ruth-send:hover { background: #3A6B4A; }
     @media (max-width: 480px) {
-      #ruth-window { width: calc(100vw - 24px); right: 12px; bottom: 96px; }
+      #ruth-window { width: calc(100vw - 24px); right: 12px; bottom: 102px; }
       #ruth-fab { right: 18px; bottom: 18px; }
     }
   </style>
@@ -3035,7 +3037,7 @@
   <!-- FAB button (starts hidden, appears after intro animation) -->
   <button id="ruth-fab" onclick="ruthToggle()" aria-label="Chat with Ruth">
     <span id="ruth-notif">1</span>
-    <svg viewBox="0 0 56 56" width="44" height="44" xmlns="http://www.w3.org/2000/svg">
+    <svg viewBox="0 0 56 56" width="48" height="48" xmlns="http://www.w3.org/2000/svg">
       <!-- Ears -->
       <ellipse cx="14" cy="14" rx="9"   ry="10"  fill="#6a6a6a"/>
       <ellipse cx="14" cy="14" rx="5.5" ry="6.5" fill="#9d9d9d"/>
@@ -3135,6 +3137,22 @@
   </div>
 
   <script>
+    // ── FAB COLOR — switches white on dark sections ──────────
+    (function() {
+      const fab = document.getElementById('ruth-fab');
+      const darkSet = new Set();
+      const darkObs = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) darkSet.add(e.target);
+          else darkSet.delete(e.target);
+        });
+        fab.classList.toggle('ruth-fab-light', darkSet.size > 0);
+      }, { threshold: 0.08 });
+      document.querySelectorAll(
+        '#impact, #operator, #cta, .cs-event-section, .cs-hero, footer, .cs-cta-strip'
+      ).forEach(el => darkObs.observe(el));
+    })();
+
     // ── RUTH INTRO WALK ANIMATION ────────────────────────────
     (function() {
       const walker = document.getElementById('ruth-intro');
