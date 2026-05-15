@@ -462,26 +462,46 @@
 
     /* CTA */
     #cta { background: var(--black); padding: 100px 0; overflow: hidden; }
-    .cta-inner { display: flex; flex-direction: column; max-width: 900px; }
-    .cta-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #888; margin-bottom: 28px; }
-    .cta-heading { font-size: clamp(26px, 3vw, 44px); font-weight: 700; line-height: 1.12; letter-spacing: -0.03em; color: var(--white); margin-bottom: 32px; }
-    .cta-sub { font-size: 14px; line-height: 1.8; color: #BBBBBB; margin-bottom: 40px; }
-    .cta-actions { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+    .cta-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 80px; align-items: start; }
+    .cta-avail { display: inline-flex; align-items: center; gap: 10px; font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 32px; }
+    .cta-avail-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); flex-shrink: 0; animation: ctaPulse 2.4s ease-in-out infinite; }
+    @keyframes ctaPulse { 0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(58,107,74,0.5)} 50%{opacity:0.7;box-shadow:0 0 0 6px rgba(58,107,74,0)} }
+    .cta-heading { font-size: clamp(28px, 3.2vw, 48px); font-weight: 800; line-height: 1.08; letter-spacing: -0.04em; color: var(--white); margin-bottom: 28px; }
+    .cta-sub { font-size: 15px; line-height: 1.8; color: #BBBBBB; margin-bottom: 0; max-width: 520px; }
+    .cta-helps { display: flex; flex-direction: column; gap: 13px; margin: 32px 0 36px; border-left: 1px solid #2a2a2a; padding-left: 24px; }
+    .cta-help-item { display: flex; align-items: flex-start; gap: 12px; font-size: 14px; line-height: 1.6; color: #CCCCCC; }
+    .cta-help-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); flex-shrink: 0; margin-top: 8px; }
+    .cta-email { font-size: 13px; color: #666; margin-top: 4px; }
+    .cta-email a { color: #AAAAAA; font-weight: 500; transition: color 0.2s; }
+    .cta-email a:hover { color: var(--white); }
+
+    /* Proof strip */
+    .cta-proof-strip { display: flex; align-items: center; background: #0d0d0d; border: 1px solid #222; border-radius: 16px; padding: 22px 20px; margin-bottom: 14px; }
+    .cta-proof-item { flex: 1; text-align: center; }
+    .cta-proof-num { font-size: 24px; font-weight: 800; letter-spacing: -0.04em; color: var(--white); line-height: 1; }
+    .cta-proof-num span { color: var(--accent); }
+    .cta-proof-label { font-size: 9px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #555; margin-top: 6px; }
+    .cta-proof-divider { width: 1px; height: 32px; background: #222; flex-shrink: 0; }
+
+    /* Action cards */
+    .cta-card { background: #0d0d0d; border: 1px solid #222; border-radius: 16px; padding: 22px 22px 20px; margin-bottom: 12px; transition: border-color 0.2s; }
+    .cta-card:last-child { margin-bottom: 0; }
+    .cta-card:hover { border-color: #3a3a3a; }
+    .cta-card-label { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #555; margin-bottom: 7px; }
+    .cta-card-desc { font-size: 13px; line-height: 1.6; color: #888; margin-bottom: 16px; }
     .btn-accent {
-      display: inline-flex; align-items: center; gap: 10px; padding: 14px 28px;
-      border: 1px solid var(--accent); background: var(--accent-faint); color: var(--white);
+      display: inline-flex; align-items: center; gap: 10px; padding: 11px 22px;
+      border: 1px solid var(--accent); background: rgba(58,107,74,0.15); color: var(--white);
       font-family: var(--font); font-size: 13px; font-weight: 600; letter-spacing: 0.04em;
-      border-radius: 10px; cursor: pointer; transition: background 0.2s;
-      text-decoration: none;
+      border-radius: 10px; cursor: pointer; transition: background 0.2s; text-decoration: none;
     }
-    .btn-accent:hover { background: rgba(58,107,74,0.25); }
-    .btn-ghost:hover { background: rgba(58,107,74,0.15); }
+    .btn-accent:hover { background: rgba(58,107,74,0.28); }
     .btn-accent svg { transition: transform 0.2s; }
     .btn-accent:hover svg { transform: translateX(3px); }
-    .btn-outline-white { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; letter-spacing: 0.04em; color: #AAAAAA; transition: color 0.2s; }
+    .btn-outline-white { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; letter-spacing: 0.04em; color: #777; transition: color 0.2s; }
     .btn-outline-white:hover { color: var(--white); }
-    .cta-email { margin-top: 28px; font-size: 13px; color: #888; }
-    .cta-email a { color: var(--white); font-weight: 600; }
+
+    @media (max-width: 900px) { .cta-grid { grid-template-columns: 1fr; gap: 48px; } }
 
     footer { background: var(--black); border-top: 1px solid #111; padding: 32px 48px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
     .footer-logo { font-size: 13px; font-weight: 700; letter-spacing: 0.06em; color: var(--white); text-transform: uppercase; }
@@ -896,6 +916,23 @@
     .budget-fill { height: 100%; border-radius: 4px; }
     .budget-pct { font-size: 13px; font-weight: 700; text-align: right; }
 
+    /* Event / Field Work Section */
+    .cs-event-section { padding: 80px 0; background: #0a0a0a; }
+    .cs-event-eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+    .cs-event-eyebrow::before { content: ''; width: 16px; height: 1px; background: var(--accent); }
+    .cs-event-heading { font-size: clamp(22px, 2.8vw, 36px); font-weight: 700; letter-spacing: -0.03em; line-height: 1.15; color: #fff; margin-bottom: 16px; }
+    .cs-event-desc { font-size: 14px; line-height: 1.8; color: #888; max-width: 600px; margin-bottom: 40px; }
+    .cs-event-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .cs-event-img-wrap { overflow: hidden; border-radius: 14px; border: 1px solid #1a1a1a; }
+    .cs-event-img-wrap img {
+      width: 100%; height: 320px; object-fit: cover; display: block;
+      filter: grayscale(100%) contrast(1.1);
+      transition: filter 0.5s ease;
+    }
+    .cs-event-img-wrap:hover img { filter: grayscale(0%) contrast(1); }
+    .cs-event-cap { padding: 12px 14px; font-size: 11px; color: #555; letter-spacing: 0.04em; line-height: 1.5; }
+    @media (max-width: 700px) { .cs-event-grid { grid-template-columns: 1fr; } .cs-event-img-wrap img { height: 240px; } }
+
     /* Proof of Work */
     .cs-proof { padding: 80px 0; background: var(--off-white); }
     .proof-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 48px; }
@@ -992,7 +1029,6 @@
           </div>
         </div>
       </li>
-      <li><a href="#" onclick="showPage('home','skills');return false;">Skills</a></li>
       <li><a href="#" onclick="showPage('home','cta');return false;" class="nav-cta">Contact →</a></li>
     </ul>
     <div class="nav-hamburger" id="hamburger" aria-label="Menu">
@@ -1299,57 +1335,20 @@
   </section>
 
 
-  <!-- SKILLS -->
-  <section id="skills">
+  <!-- FIELD WORK — Hotelier India Awards -->
+  <section class="cs-event-section">
     <div class="container">
-
-      <div class="section-eyebrow reveal">Expertise</div>
-      <h2 class="section-heading reveal d1" style="margin-top:20px;margin-bottom:72px">Full-stack growth.<br/>Every layer.</h2>
-
-      <div class="skills-grid">
-        <div class="skills-left reveal d2">
-          <div class="skill-cats">
-            <div class="skill-cat">
-              <div class="skill-cat-header"><span class="skill-cat-name">GTM & Growth Strategy</span><span class="skill-cat-count">6 skills</span></div>
-              <div class="skill-tags"><span class="skill-tag">ICP Definition</span><span class="skill-tag">GTM Strategy</span><span class="skill-tag">Demand Generation</span><span class="skill-tag">Pipeline Growth</span><span class="skill-tag">Sales Enablement</span><span class="skill-tag">Revenue Optimization</span></div>
-            </div>
-            <div class="skill-cat">
-              <div class="skill-cat-header"><span class="skill-cat-name">Acquisition & Performance</span><span class="skill-cat-count">7 skills</span></div>
-              <div class="skill-tags"><span class="skill-tag">Meta Ads</span><span class="skill-tag">Google Ads</span><span class="skill-tag">LinkedIn Outreach</span><span class="skill-tag">Cold Email</span><span class="skill-tag">Campaign Testing</span><span class="skill-tag">CRO</span><span class="skill-tag">Funnel Optimization</span></div>
-            </div>
-            <div class="skill-cat">
-              <div class="skill-cat-header"><span class="skill-cat-name">Lifecycle & Sales Engine</span><span class="skill-cat-count">6 skills</span></div>
-              <div class="skill-tags"><span class="skill-tag">Email Marketing</span><span class="skill-tag">Lead Nurturing</span><span class="skill-tag">WhatsApp Automation</span><span class="skill-tag">CRM Journeys</span><span class="skill-tag">Qualification Flows</span><span class="skill-tag">User Engagement</span></div>
-            </div>
-            <div class="skill-cat">
-              <div class="skill-cat-header"><span class="skill-cat-name">Website & Conversion</span><span class="skill-cat-count">6 skills</span></div>
-              <div class="skill-tags"><span class="skill-tag">Shopify</span><span class="skill-tag">Landing Pages</span><span class="skill-tag">Website Optimization</span><span class="skill-tag">Analytics</span><span class="skill-tag">A/B Testing</span><span class="skill-tag">Conversion Funnels</span></div>
-            </div>
-            <div class="skill-cat">
-              <div class="skill-cat-header"><span class="skill-cat-name">Brand & Communication</span><span class="skill-cat-count">6 skills</span></div>
-              <div class="skill-tags"><span class="skill-tag">Positioning</span><span class="skill-tag">Messaging</span><span class="skill-tag">Proposals</span><span class="skill-tag">Pitch Decks</span><span class="skill-tag">Case Studies</span><span class="skill-tag">Content Marketing</span></div>
-            </div>
-          </div>
+      <div class="cs-event-eyebrow reveal">In the Field</div>
+      <h2 class="cs-event-heading reveal d1">Hotelier India Awards, 2025</h2>
+      <p class="cs-event-desc reveal d2">Represented Quick Clean at Hotelier India Awards in December 2025 — one of India's key hospitality industry forums. Direct floor access to hotel owners, GMs, and hospitality operators; the exact decision-makers we were building campaigns to reach.</p>
+      <div class="cs-event-grid reveal d3">
+        <div class="cs-event-img-wrap">
+          <img src="https://lh3.googleusercontent.com/d/13fayf5YGkgJmFTwvKCK-RkQfy3peXlvw" alt="Hotelier India Awards 2025 — Aman Raj" loading="lazy" onerror="this.parentElement.style.display='none'"/>
+          <div class="cs-event-cap">Hotelier India Awards, December 2025</div>
         </div>
-
-        <div class="skills-right reveal d3">
-          <div class="proficiency-block">
-            <div class="prof-label">Core Strengths</div>
-            <div class="proficiency-bars">
-              <div class="prof-item"><div class="prof-row"><span class="prof-name">GTM Strategy & ICP</span><span class="prof-pct">92%</span></div><div class="prof-track"><div class="prof-fill" style="--w:92%"></div></div></div>
-              <div class="prof-item"><div class="prof-row"><span class="prof-name">Demand Generation</span><span class="prof-pct">90%</span></div><div class="prof-track"><div class="prof-fill" style="--w:90%"></div></div></div>
-              <div class="prof-item"><div class="prof-row"><span class="prof-name">Performance Marketing</span><span class="prof-pct">88%</span></div><div class="prof-track"><div class="prof-fill" style="--w:88%"></div></div></div>
-              <div class="prof-item"><div class="prof-row"><span class="prof-name">Funnel & Conversion</span><span class="prof-pct">86%</span></div><div class="prof-track"><div class="prof-fill" style="--w:86%"></div></div></div>
-              <div class="prof-item"><div class="prof-row"><span class="prof-name">Sales Enablement</span><span class="prof-pct">85%</span></div><div class="prof-track"><div class="prof-fill" style="--w:85%"></div></div></div>
-              <div class="prof-item"><div class="prof-row"><span class="prof-name">Brand & Messaging</span><span class="prof-pct">82%</span></div><div class="prof-track"><div class="prof-fill" style="--w:82%"></div></div></div>
-            </div>
-          </div>
-          <div>
-            <div class="prof-label">Tools & Platforms</div>
-            <div class="tools-list">
-              <span class="tool-chip">Meta Ads</span><span class="tool-chip">Google Ads</span><span class="tool-chip">Instantly.ai</span><span class="tool-chip">Apollo.io</span><span class="tool-chip">Sales Navigator</span><span class="tool-chip">GA4</span><span class="tool-chip">SEMrush</span><span class="tool-chip">Zapier</span><span class="tool-chip">Shopify</span><span class="tool-chip">CRM Tools</span><span class="tool-chip">AI Agents</span><span class="tool-chip">WhatsApp Auto</span>
-            </div>
-          </div>
+        <div class="cs-event-img-wrap">
+          <img src="https://lh3.googleusercontent.com/d/1qjU7ZsVmZUw8LM3i3AuA64aF26cqu6hv" alt="Quick Clean booth at Hotelier India Awards" loading="lazy" onerror="this.parentElement.style.display='none'"/>
+          <div class="cs-event-cap">Quick Clean booth — Hotelier India Awards</div>
         </div>
       </div>
     </div>
@@ -1359,27 +1358,55 @@
   <!-- CTA -->
   <section id="cta">
     <div class="container">
-      <div class="cta-inner">
+      <div class="cta-grid">
+
+        <!-- LEFT: The pitch -->
         <div class="cta-left">
-          <div class="cta-eyebrow reveal">Let's Work Together</div>
-          <h2 class="cta-heading reveal d1">Need someone who can connect GTM, acquisition, and pipeline?</h2>
-          <p class="cta-sub reveal d2">Whether you're a founder building your first go-to-market system, a marketing leader improving funnel quality, or a growth team that needs sharper ICP, messaging, and acquisition — let's talk.</p>
-          <div class="cta-actions reveal d3">
-            <!-- Resume PDF — connect Aman_Raj_Resume.pdf when file is ready -->
-            <a href="Aman_Raj_Resume.pdf" class="btn-accent" download>
-              Download Resume
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1v9M3 7l4 5 4-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-            <a href="https://linkedin.com/in/amanrajgtm" target="_blank" class="btn-outline-white">
-              View LinkedIn
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
+          <div class="cta-avail reveal">
+            <span class="cta-avail-dot"></span>
+            Available for the right opportunity
+          </div>
+          <h2 class="cta-heading reveal d1">
+            Let's build something<br/>that actually moves<br/>the needle.
+          </h2>
+          <p class="cta-sub reveal d2">
+            I work best where strategy and execution have to go hand in hand — not one without the other.
+          </p>
+          <div class="cta-helps reveal d3">
+            <div class="cta-help-item"><span class="cta-help-dot"></span>ICP definition, positioning &amp; go-to-market strategy</div>
+            <div class="cta-help-item"><span class="cta-help-dot"></span>Demand generation &amp; multi-channel acquisition systems</div>
+            <div class="cta-help-item"><span class="cta-help-dot"></span>Performance campaigns, funnel quality &amp; pipeline growth</div>
+            <div class="cta-help-item"><span class="cta-help-dot"></span>Sales enablement — messaging, proposals &amp; pitch collateral</div>
           </div>
           <p class="cta-email reveal d4">
             <a href="mailto:amanraj.gtm@gmail.com">amanraj.gtm@gmail.com</a>
             &nbsp;·&nbsp;
             <a href="tel:+917358258229">+91 73582 58229</a>
           </p>
+        </div>
+
+        <!-- RIGHT: Numbers + action cards -->
+        <div class="cta-right reveal d2">
+
+          <!-- Card: Hiring -->
+          <div class="cta-card">
+            <div class="cta-card-label">I'm a company looking to hire</div>
+            <div class="cta-card-desc">Full-time role or consulting engagement — let's see if it's a fit.</div>
+            <a href="Aman_Raj_Resume.pdf" class="btn-accent" download>
+              Download Resume
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1v9M3 7l4 5 4-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+
+          <!-- Card: Project -->
+          <div class="cta-card">
+            <div class="cta-card-label">I have a project or campaign</div>
+            <div class="cta-card-desc">Tell me what you're working on — I respond within 24 hours.</div>
+            <a href="mailto:amanraj.gtm@gmail.com" class="btn-outline-white">
+              Send an Email →
+            </a>
+          </div>
+
         </div>
       </div>
     </div>
@@ -2742,6 +2769,591 @@
 
     // Show home on load
     showPage('home');
+  </script>
+
+  <!-- ═══════════════════════════════════════
+       RUTH — PORTFOLIO ASSISTANT WIDGET
+       Walking intro animation + chat widget
+       ═══════════════════════════════════════ -->
+  <style>
+    /* ── WALKING INTRO RACCOON ── */
+    #ruth-intro {
+      position: fixed; bottom: 18px; left: -110px;
+      width: 80px; height: 106px; z-index: 9002;
+      pointer-events: none; opacity: 1;
+    }
+    /* Body bob during walk */
+    #ruth-intro.rw-walking { animation: ruthBob 0.44s ease-in-out infinite alternate; }
+    @keyframes ruthBob { 0%{transform:translateY(0) rotate(-0.8deg)} 100%{transform:translateY(-6px) rotate(0.8deg)} }
+
+    /* Legs while walking */
+    #ruth-intro.rw-walking #rw-leg-l { animation: ruthLeg 0.44s ease-in-out infinite alternate; }
+    #ruth-intro.rw-walking #rw-leg-r { animation: ruthLeg 0.44s ease-in-out infinite alternate-reverse; }
+    @keyframes ruthLeg { 0%{transform:rotate(-24deg)} 100%{transform:rotate(24deg)} }
+
+    /* Arms counterswing during walk */
+    #ruth-intro.rw-walking #rw-arm-l { animation: ruthArmW 0.44s ease-in-out infinite alternate-reverse; }
+    #ruth-intro.rw-walking #rw-arm-r { animation: ruthArmW 0.44s ease-in-out infinite alternate; }
+    @keyframes ruthArmW { 0%{transform:rotate(-18deg)} 100%{transform:rotate(18deg)} }
+
+    /* Wave hand */
+    #ruth-intro.rw-waving #rw-arm-r { animation: ruthWave 0.38s ease-in-out infinite alternate; }
+    @keyframes ruthWave { 0%{transform:rotate(-95deg)} 100%{transform:rotate(-50deg)} }
+
+    /* FAB eye blink every 5 seconds */
+    #fab-eye-l, #fab-eye-r { transform-box: fill-box; transform-origin: center; }
+    .ruth-fab-ready #fab-eye-l { animation: ruthBlink 5s ease-in-out 3s infinite; }
+    .ruth-fab-ready #fab-eye-r { animation: ruthBlink 5s ease-in-out 3.07s infinite; }
+    @keyframes ruthBlink {
+      0%, 90%, 100% { transform: scaleY(1); }
+      93%            { transform: scaleY(0.05); }
+      97%            { transform: scaleY(1); }
+    }
+
+    /* FAB button */
+    #ruth-fab {
+      position: fixed; bottom: 28px; right: 28px;
+      width: 62px; height: 62px; border-radius: 50%;
+      background: #000; border: none; cursor: pointer;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.22);
+      display: flex; align-items: center; justify-content: center;
+      transition: transform 0.2s, box-shadow 0.2s, opacity 0.35s;
+      z-index: 9000; opacity: 0; pointer-events: none;
+    }
+    #ruth-fab.ruth-fab-ready { opacity: 1; pointer-events: all; }
+    #ruth-fab.ruth-fab-ready:hover { transform: scale(1.08); box-shadow: 0 6px 28px rgba(0,0,0,0.32); }
+    #ruth-notif {
+      position: absolute; top: -3px; right: -3px;
+      width: 17px; height: 17px; border-radius: 50%;
+      background: #3A6B4A; border: 2px solid #fff;
+      font-size: 9px; font-weight: 700; color: #fff;
+      display: none; align-items: center; justify-content: center;
+    }
+    /* Chat window */
+    #ruth-window {
+      position: fixed; bottom: 102px; right: 28px;
+      width: 348px; max-height: 510px;
+      background: #fff; border-radius: 18px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.16);
+      display: flex; flex-direction: column; overflow: hidden;
+      z-index: 9001;
+      transform: scale(0.88) translateY(16px);
+      opacity: 0; pointer-events: none;
+      transition: transform 0.26s cubic-bezier(0.34,1.56,0.64,1), opacity 0.2s;
+    }
+    #ruth-window.ruth-open { transform: scale(1) translateY(0); opacity: 1; pointer-events: all; }
+    /* Header */
+    #ruth-header {
+      background: #000; padding: 13px 15px;
+      display: flex; align-items: center; gap: 11px; flex-shrink: 0;
+    }
+    #ruth-av {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: #1a1a1a; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    #ruth-info { flex: 1; }
+    #ruth-hname { color: #fff; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 700; }
+    #ruth-hstatus { color: #4caf7d; font-family: 'DM Sans', sans-serif; font-size: 11px; display: flex; align-items: center; gap: 5px; margin-top: 1px; }
+    #ruth-hstatus::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: #4caf7d; display: inline-block; }
+    #ruth-hclose {
+      background: none; border: none; color: #777; font-size: 20px; cursor: pointer;
+      line-height: 1; padding: 4px; transition: color 0.15s; font-family: sans-serif;
+    }
+    #ruth-hclose:hover { color: #fff; }
+    /* Messages */
+    #ruth-msgs {
+      flex: 1; overflow-y: auto; padding: 14px;
+      display: flex; flex-direction: column; gap: 9px; background: #f7f7f7;
+    }
+    #ruth-msgs::-webkit-scrollbar { width: 3px; }
+    #ruth-msgs::-webkit-scrollbar-thumb { background: #ddd; border-radius: 3px; }
+    .rm { display: flex; gap: 7px; align-items: flex-end; animation: rmIn 0.2s ease; max-width: 90%; }
+    @keyframes rmIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: none; } }
+    .rm.bot { align-self: flex-start; }
+    .rm.usr { align-self: flex-end; flex-direction: row-reverse; }
+    .rm-av { width: 26px; height: 26px; border-radius: 50%; background: #000; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .rm-av svg { width: 16px; height: 16px; }
+    .rm-b {
+      padding: 9px 12px; border-radius: 14px;
+      font-family: 'DM Sans', sans-serif; font-size: 13px; line-height: 1.55;
+      max-width: 100%; word-break: break-word;
+    }
+    .rm.bot .rm-b { background: #fff; color: #111; border: 1px solid #e5e5e5; border-bottom-left-radius: 4px; }
+    .rm.usr .rm-b { background: #000; color: #fff; border-bottom-right-radius: 4px; }
+    /* Typing */
+    .ruth-typing { display: flex; align-items: center; gap: 4px; padding: 11px 13px; }
+    .ruth-typing span { width: 6px; height: 6px; border-radius: 50%; background: #bbb; animation: rdot 1.1s infinite ease; }
+    .ruth-typing span:nth-child(2) { animation-delay: 0.18s; }
+    .ruth-typing span:nth-child(3) { animation-delay: 0.36s; }
+    @keyframes rdot { 0%,80%,100%{transform:scale(1)} 40%{transform:scale(1.45)} }
+    /* Quick replies */
+    #ruth-chips { padding: 8px 12px 4px; display: flex; flex-wrap: wrap; gap: 6px; background: #f7f7f7; flex-shrink: 0; }
+    .ruth-chip {
+      font-family: 'DM Sans', sans-serif; font-size: 11.5px; font-weight: 500;
+      padding: 5px 11px; border-radius: 20px; border: 1px solid #ccc;
+      background: #fff; color: #333; cursor: pointer; transition: all 0.15s;
+    }
+    .ruth-chip:hover { background: #3A6B4A; border-color: #3A6B4A; color: #fff; }
+    /* Input */
+    #ruth-input-row {
+      padding: 10px 12px; border-top: 1px solid #eee;
+      display: flex; gap: 8px; align-items: center; background: #fff; flex-shrink: 0;
+    }
+    #ruth-input {
+      flex: 1; border: 1px solid #e0e0e0; border-radius: 10px;
+      padding: 8px 12px; font-family: 'DM Sans', sans-serif; font-size: 13px;
+      color: #111; outline: none; background: #f7f7f7;
+      transition: border-color 0.15s;
+    }
+    #ruth-input:focus { border-color: #3A6B4A; background: #fff; }
+    #ruth-send {
+      width: 34px; height: 34px; border-radius: 50%; border: none;
+      background: #000; color: #fff; cursor: pointer; display: flex;
+      align-items: center; justify-content: center; flex-shrink: 0;
+      transition: background 0.2s;
+    }
+    #ruth-send:hover { background: #3A6B4A; }
+    @media (max-width: 480px) {
+      #ruth-window { width: calc(100vw - 24px); right: 12px; bottom: 96px; }
+      #ruth-fab { right: 18px; bottom: 18px; }
+    }
+  </style>
+
+  <!-- Ruth HTML -->
+  <!-- Walking raccoon intro -->
+  <div id="ruth-intro" aria-hidden="true">
+    <svg viewBox="0 0 100 130" width="80" height="106" xmlns="http://www.w3.org/2000/svg">
+      <!-- TAIL — striped, sweeping right from behind body -->
+      <ellipse cx="84" cy="97" rx="15" ry="9" fill="#9a9a9a" transform="rotate(-22 84 97)"/>
+      <ellipse cx="84" cy="97" rx="11" ry="6.5" fill="#484848" transform="rotate(-22 84 97)"/>
+      <ellipse cx="84" cy="97" rx="7.5" ry="4.5" fill="#9a9a9a" transform="rotate(-22 84 97)"/>
+      <ellipse cx="84" cy="97" rx="4.5" ry="2.8" fill="#484848" transform="rotate(-22 84 97)"/>
+      <ellipse cx="84" cy="97" rx="2.2" ry="1.5" fill="#c8c8c8" transform="rotate(-22 84 97)"/>
+
+      <!-- BODY — round, warm gray -->
+      <ellipse cx="48" cy="96" rx="27" ry="24" fill="#9d9d9d"/>
+      <!-- Belly — lighter patch -->
+      <ellipse cx="48" cy="101" rx="18" ry="15" fill="#c6c6c6"/>
+
+      <!-- LEFT LEG (hip pivot 34,112) -->
+      <g transform="translate(34,112)">
+        <g id="rw-leg-l" style="transform-origin:0 0">
+          <rect x="-7" y="0" width="14" height="17" rx="7" fill="#7c7c7c"/>
+          <ellipse cx="0" cy="19" rx="9" ry="5.5" fill="#686868"/>
+          <ellipse cx="-3.5" cy="21" rx="2.8" ry="1.8" fill="#5a5a5a"/>
+          <ellipse cx="0.5" cy="22" rx="2.8" ry="1.8" fill="#5a5a5a"/>
+          <ellipse cx="4.5" cy="21" rx="2.8" ry="1.8" fill="#5a5a5a"/>
+        </g>
+      </g>
+
+      <!-- RIGHT LEG (hip pivot 62,112) -->
+      <g transform="translate(62,112)">
+        <g id="rw-leg-r" style="transform-origin:0 0">
+          <rect x="-7" y="0" width="14" height="17" rx="7" fill="#7c7c7c"/>
+          <ellipse cx="0" cy="19" rx="9" ry="5.5" fill="#686868"/>
+          <ellipse cx="-3.5" cy="21" rx="2.8" ry="1.8" fill="#5a5a5a"/>
+          <ellipse cx="0.5" cy="22" rx="2.8" ry="1.8" fill="#5a5a5a"/>
+          <ellipse cx="4.5" cy="21" rx="2.8" ry="1.8" fill="#5a5a5a"/>
+        </g>
+      </g>
+
+      <!-- LEFT ARM (shoulder pivot 20,86) -->
+      <g transform="translate(20,86)">
+        <g id="rw-arm-l" style="transform-origin:0 0">
+          <rect x="-6" y="0" width="12" height="20" rx="6" fill="#9d9d9d"/>
+          <ellipse cx="0" cy="22" rx="8" ry="5" fill="#8a8a8a"/>
+          <ellipse cx="-3" cy="24" rx="2.5" ry="1.7" fill="#777"/>
+          <ellipse cx="0.5" cy="25" rx="2.5" ry="1.7" fill="#777"/>
+          <ellipse cx="4" cy="24" rx="2.5" ry="1.7" fill="#777"/>
+        </g>
+      </g>
+
+      <!-- RIGHT ARM — WAVING (shoulder pivot 76,86) -->
+      <g transform="translate(76,86)">
+        <g id="rw-arm-r" style="transform-origin:0 0">
+          <rect x="-6" y="0" width="12" height="20" rx="6" fill="#9d9d9d"/>
+          <ellipse cx="0" cy="22" rx="8" ry="5" fill="#8a8a8a"/>
+          <ellipse cx="-3" cy="24" rx="2.5" ry="1.7" fill="#777"/>
+          <ellipse cx="0.5" cy="25" rx="2.5" ry="1.7" fill="#777"/>
+          <ellipse cx="4" cy="24" rx="2.5" ry="1.7" fill="#777"/>
+        </g>
+      </g>
+
+      <!-- HEAD — big round head -->
+      <circle cx="48" cy="49" r="34" fill="#9d9d9d"/>
+
+      <!-- EARS — outer dark, mid gray, inner pink -->
+      <ellipse cx="22" cy="23" rx="12" ry="14" fill="#707070"/>
+      <ellipse cx="22" cy="23" rx="8"  ry="9.5" fill="#9d9d9d"/>
+      <ellipse cx="22" cy="23" rx="5"  ry="6.5" fill="#e0a8b2"/>
+      <ellipse cx="74" cy="23" rx="12" ry="14" fill="#707070"/>
+      <ellipse cx="74" cy="23" rx="8"  ry="9.5" fill="#9d9d9d"/>
+      <ellipse cx="74" cy="23" rx="5"  ry="6.5" fill="#e0a8b2"/>
+
+      <!-- EYE MASKS — raccoon bandit patches -->
+      <ellipse cx="36" cy="49" rx="14" ry="11.5" fill="#3c3c3c"/>
+      <ellipse cx="60" cy="49" rx="14" ry="11.5" fill="#3c3c3c"/>
+
+      <!-- EYE WHITES -->
+      <circle cx="36" cy="49" r="8.5" fill="#f2f2f2"/>
+      <circle cx="60" cy="49" r="8.5" fill="#f2f2f2"/>
+
+      <!-- PUPILS + iris ring -->
+      <circle cx="37" cy="50" r="5.5" fill="#222"/>
+      <circle cx="61" cy="50" r="5.5" fill="#222"/>
+      <circle cx="37" cy="50" r="5.5" fill="none" stroke="#506830" stroke-width="1.4" opacity="0.55"/>
+      <circle cx="61" cy="50" r="5.5" fill="none" stroke="#506830" stroke-width="1.4" opacity="0.55"/>
+      <!-- Main shine -->
+      <circle cx="39.5" cy="47.5" r="2.2" fill="#fff"/>
+      <circle cx="63.5" cy="47.5" r="2.2" fill="#fff"/>
+      <!-- Small lower shine -->
+      <circle cx="36.5" cy="53"   r="0.9" fill="#fff" opacity="0.65"/>
+      <circle cx="60.5" cy="53"   r="0.9" fill="#fff" opacity="0.65"/>
+
+      <!-- NOSE -->
+      <ellipse cx="48" cy="60" rx="6.5" ry="4.5" fill="#5c5c5c"/>
+      <ellipse cx="48" cy="59.5" rx="3.8" ry="2.8" fill="#3a3a3a"/>
+      <ellipse cx="49.8" cy="58.5" rx="1.4" ry="0.9" fill="#888" opacity="0.5"/>
+
+      <!-- PHILTRUM + MOUTH -->
+      <path d="M46 62.5 L45 66 M50 62.5 L51 66" stroke="#7a7a7a" stroke-width="0.9" stroke-linecap="round" opacity="0.5"/>
+      <path d="M42 67 Q48 72.5 54 67" stroke="#5c5c5c" stroke-width="2" stroke-linecap="round" fill="none"/>
+
+      <!-- CHEEK BLUSH -->
+      <ellipse cx="19" cy="56" rx="8" ry="5" fill="#cc7a7a" opacity="0.2"/>
+      <ellipse cx="77" cy="56" rx="8" ry="5" fill="#cc7a7a" opacity="0.2"/>
+
+      <!-- FOREHEAD LIGHTER STRIPE -->
+      <ellipse cx="48" cy="28" rx="5" ry="9" fill="#bcbcbc" opacity="0.38"/>
+
+      <!-- WHISKER SUGGESTIONS -->
+      <line x1="6"  y1="59" x2="22" y2="56" stroke="#aaa" stroke-width="0.8" opacity="0.4"/>
+      <line x1="6"  y1="63" x2="22" y2="61" stroke="#aaa" stroke-width="0.8" opacity="0.4"/>
+      <line x1="90" y1="59" x2="74" y2="56" stroke="#aaa" stroke-width="0.8" opacity="0.4"/>
+      <line x1="90" y1="63" x2="74" y2="61" stroke="#aaa" stroke-width="0.8" opacity="0.4"/>
+    </svg>
+  </div>
+
+  <!-- FAB button (starts hidden, appears after intro animation) -->
+  <button id="ruth-fab" onclick="ruthToggle()" aria-label="Chat with Ruth">
+    <span id="ruth-notif">1</span>
+    <svg viewBox="0 0 56 56" width="44" height="44" xmlns="http://www.w3.org/2000/svg">
+      <!-- Ears -->
+      <ellipse cx="14" cy="14" rx="9"   ry="10"  fill="#6a6a6a"/>
+      <ellipse cx="14" cy="14" rx="5.5" ry="6.5" fill="#9d9d9d"/>
+      <ellipse cx="14" cy="14" rx="3.2" ry="4"   fill="#e0a8b2"/>
+      <ellipse cx="42" cy="14" rx="9"   ry="10"  fill="#6a6a6a"/>
+      <ellipse cx="42" cy="14" rx="5.5" ry="6.5" fill="#9d9d9d"/>
+      <ellipse cx="42" cy="14" rx="3.2" ry="4"   fill="#e0a8b2"/>
+      <!-- Head -->
+      <circle cx="28" cy="33" r="22" fill="#9d9d9d"/>
+      <!-- Forehead stripe -->
+      <ellipse cx="28" cy="18" rx="3.5" ry="6" fill="#bcbcbc" opacity="0.38"/>
+      <!-- Eye masks -->
+      <ellipse cx="19.5" cy="31" rx="10" ry="8.5" fill="#3c3c3c"/>
+      <ellipse cx="36.5" cy="31" rx="10" ry="8.5" fill="#3c3c3c"/>
+      <!-- Eye whites + pupils — groups with IDs for blink animation -->
+      <g id="fab-eye-l">
+        <circle cx="19.5" cy="31"   r="6"   fill="#f2f2f2"/>
+        <circle cx="20.5" cy="31.8" r="3.8" fill="#222"/>
+        <circle cx="20.5" cy="31.8" r="3.8" fill="none" stroke="#506830" stroke-width="1.2" opacity="0.5"/>
+        <circle cx="22"   cy="30"   r="1.6" fill="#fff"/>
+        <circle cx="20"   cy="34"   r="0.7" fill="#fff" opacity="0.6"/>
+      </g>
+      <g id="fab-eye-r">
+        <circle cx="36.5" cy="31"   r="6"   fill="#f2f2f2"/>
+        <circle cx="37.5" cy="31.8" r="3.8" fill="#222"/>
+        <circle cx="37.5" cy="31.8" r="3.8" fill="none" stroke="#506830" stroke-width="1.2" opacity="0.5"/>
+        <circle cx="39"   cy="30"   r="1.6" fill="#fff"/>
+        <circle cx="37"   cy="34"   r="0.7" fill="#fff" opacity="0.6"/>
+      </g>
+      <!-- Nose -->
+      <ellipse cx="28" cy="39.5" rx="5"   ry="3.5" fill="#5c5c5c"/>
+      <ellipse cx="28" cy="39"   rx="2.8" ry="2"   fill="#3a3a3a"/>
+      <ellipse cx="29.5" cy="38" rx="1.2" ry="0.8" fill="#888" opacity="0.5"/>
+      <!-- Mouth -->
+      <path d="M23 43 Q28 47.5 33 43" stroke="#5c5c5c" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+      <!-- Cheek blush -->
+      <ellipse cx="10" cy="35" rx="5.5" ry="3.5" fill="#cc7a7a" opacity="0.2"/>
+      <ellipse cx="46" cy="35" rx="5.5" ry="3.5" fill="#cc7a7a" opacity="0.2"/>
+    </svg>
+  </button>
+
+  <div id="ruth-window" role="dialog" aria-label="Chat with Ruth">
+    <div id="ruth-header">
+      <div id="ruth-av">
+        <svg viewBox="0 0 56 56" width="30" height="30" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="14" cy="14" rx="9" ry="10" fill="#6a6a6a"/>
+          <ellipse cx="14" cy="14" rx="5.5" ry="6.5" fill="#9d9d9d"/>
+          <ellipse cx="14" cy="14" rx="3.2" ry="4" fill="#e0a8b2"/>
+          <ellipse cx="42" cy="14" rx="9" ry="10" fill="#6a6a6a"/>
+          <ellipse cx="42" cy="14" rx="5.5" ry="6.5" fill="#9d9d9d"/>
+          <ellipse cx="42" cy="14" rx="3.2" ry="4" fill="#e0a8b2"/>
+          <circle cx="28" cy="33" r="22" fill="#9d9d9d"/>
+          <ellipse cx="28" cy="18" rx="3.5" ry="6" fill="#bcbcbc" opacity="0.38"/>
+          <ellipse cx="19.5" cy="31" rx="10" ry="8.5" fill="#3c3c3c"/>
+          <ellipse cx="36.5" cy="31" rx="10" ry="8.5" fill="#3c3c3c"/>
+          <circle cx="19.5" cy="31" r="6" fill="#f2f2f2"/>
+          <circle cx="36.5" cy="31" r="6" fill="#f2f2f2"/>
+          <circle cx="20.5" cy="31.8" r="3.8" fill="#222"/>
+          <circle cx="37.5" cy="31.8" r="3.8" fill="#222"/>
+          <circle cx="22" cy="30" r="1.6" fill="#fff"/>
+          <circle cx="39" cy="30" r="1.6" fill="#fff"/>
+          <ellipse cx="28" cy="39.5" rx="5" ry="3.5" fill="#5c5c5c"/>
+          <ellipse cx="28" cy="39" rx="2.8" ry="2" fill="#3a3a3a"/>
+          <path d="M23 43 Q28 47.5 33 43" stroke="#5c5c5c" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+          <ellipse cx="10" cy="35" rx="5.5" ry="3.5" fill="#cc7a7a" opacity="0.2"/>
+          <ellipse cx="46" cy="35" rx="5.5" ry="3.5" fill="#cc7a7a" opacity="0.2"/>
+        </svg>
+      </div>
+      <div id="ruth-info">
+        <div id="ruth-hname">Ruth 🦝</div>
+        <div id="ruth-hstatus">Online — here to help</div>
+      </div>
+      <button id="ruth-hclose" onclick="ruthToggle()" aria-label="Close chat">✕</button>
+    </div>
+
+    <div id="ruth-msgs"></div>
+
+    <div id="ruth-chips">
+      <button class="ruth-chip" onclick="ruthAsk('What are his case studies?')">Case Studies</button>
+      <button class="ruth-chip" onclick="ruthAsk('What are his key results and numbers?')">Impact Numbers</button>
+      <button class="ruth-chip" onclick="ruthAsk('What services does Aman offer?')">Services</button>
+      <button class="ruth-chip" onclick="ruthAsk('What is his career experience and timeline?')">Experience</button>
+      <button class="ruth-chip" onclick="ruthAsk('Is Aman available to hire?')">Hire Aman</button>
+      <button class="ruth-chip" onclick="ruthAsk('What is his GTM approach and process?')">His Approach</button>
+      <button class="ruth-chip" onclick="ruthAsk('How can I contact Aman?')">Contact</button>
+      <button class="ruth-chip" onclick="ruthAsk('What tools and skills does Aman have?')">Skills & Tools</button>
+    </div>
+
+    <div id="ruth-input-row">
+      <input id="ruth-input" type="text" placeholder="Type your question…" onkeydown="if(event.key==='Enter')ruthSend()" autocomplete="off"/>
+      <button id="ruth-send" onclick="ruthSend()" aria-label="Send">
+        <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
+          <path d="M1 14L14 7.5L1 1v5l9 1.5L1 9v5z" fill="white"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <script>
+    // ── RUTH INTRO WALK ANIMATION ────────────────────────────
+    (function() {
+      const walker = document.getElementById('ruth-intro');
+      const fab    = document.getElementById('ruth-fab');
+
+      // Phase 1 (300ms): Start walking in from left
+      setTimeout(() => {
+        walker.classList.add('rw-walking');
+        walker.style.transition = 'left 1.5s cubic-bezier(0.25,0.46,0.45,0.94)';
+        walker.style.left = '26px';
+      }, 300);
+
+      // Phase 2 (1900ms): Arrive — stop walking, start waving
+      setTimeout(() => {
+        walker.style.transition = 'none';
+        walker.classList.remove('rw-walking');
+        walker.classList.add('rw-waving');
+      }, 1900);
+
+      // Phase 3 (3500ms): Fly to FAB position and shrink
+      setTimeout(() => {
+        walker.classList.remove('rw-waving');
+        const wr = walker.getBoundingClientRect();
+        const walkerCX = wr.left + wr.width  / 2;
+        const walkerCY = wr.top  + wr.height / 2;
+        const fabCX = window.innerWidth  - 28 - 31; // right:28, half of 62px
+        const fabCY = window.innerHeight - 28 - 31; // bottom:28, half of 62px
+        const dx    = fabCX - walkerCX;
+        const dy    = fabCY - walkerCY;
+        walker.style.transition = 'transform 0.52s cubic-bezier(0.68,-0.55,0.265,1.55), opacity 0.28s 0.26s';
+        walker.style.transform  = `translate(${dx}px,${dy}px) scale(0.6)`;
+        walker.style.opacity    = '0';
+      }, 3500);
+
+      // Phase 4 (4150ms): Hide intro, pop FAB into view
+      setTimeout(() => {
+        walker.style.display = 'none';
+        fab.classList.add('ruth-fab-ready');
+      }, 4150);
+
+      // Phase 5 (7200ms): Show notification badge
+      setTimeout(() => {
+        document.getElementById('ruth-notif').style.display = 'flex';
+      }, 7200);
+    })();
+
+    // ── RUTH QA DATABASE — all answers verified from site content ──
+    const RUTH_QA = [
+
+      // ── CASE STUDIES ───────────────────────────────────────────
+      {
+        keys: ['best case','top case','strongest case','case stud','show me work','show me his work','show work','examples','portfolio work'],
+        answer: `Aman has 4 detailed case studies on this portfolio:\n\n<strong>01 · Quick Clean</strong> — B2B GTM for commercial laundry. Built ICP, segmentation, messaging, and a 6-channel demand engine. Result: <strong>40% MQL → SQL conversion lift</strong> and ~₹5Cr opportunity value.\n\n<strong>02 · AccountX</strong> — Global GTM & outbound engine across 10 markets (UK, US, UAE, Australia + more). Result: <strong>70–80 qualified leads per month</strong>.\n\n<strong>03 · Bertrand & Bernard</strong> — Performance marketing & Shopify CRO for e-commerce brands. Result: <strong>2.5× ROAS</strong>.\n\n<strong>04 · Meal House</strong> — Founded a B2B food services business from scratch, serving industrial clients in Haryana.\n\nClick <em>"Case Studies"</em> in the top nav to read the full breakdowns! 📂`
+      },
+      {
+        keys: ['quick clean','laundry','hospitality','hotel','hospital','healthcare'],
+        answer: `The <strong>Quick Clean case study</strong> is Aman's most detailed B2B GTM work.\n\nQuick Clean provides outsourced commercial laundry to hotels (150+ rooms) and hospitals (250+ beds) in India. The challenge: no structured ICP, generic messaging, multiple decision-makers.\n\n<strong>What Aman built:</strong>\n• ICP definition & segmentation (hospitality vs healthcare)\n• Stakeholder messaging matrix (Owner, GM, CFO, EHK, Purchase, Engineering — all different messages)\n• 6-channel demand engine: Events, LinkedIn, Email, Cold outreach, WhatsApp, Landing pages\n• Qualification journey to improve lead-to-sales handoff\n\n<strong>Result: 40% MQL → SQL conversion lift</strong> and 30–40 qualified leads per quarter tied to ~₹5Cr opportunity value.\n\nClick "Case Studies" → Quick Clean to read the full breakdown!`
+      },
+      {
+        keys: ['accountx','account x','outbound','global','international','saas','cold email','linkedin outreach'],
+        answer: `The <strong>AccountX case study</strong> is all about building a GTM and outbound engine from zero.\n\nAccountX needed to reach accounting & finance buyers across 10 global markets (UK, US, UAE, Australia, and more).\n\n<strong>What Aman built:</strong>\n• Full GTM foundation — website, messaging, proposals, pitch decks\n• Country-wise ICP research & positioning\n• Outbound infrastructure using Sales Navigator, Apollo.io, Instantly.ai\n• Cold email sequences & LinkedIn outreach at scale\n• SEO + Google Search Ads\n\n<strong>Result: 70–80 qualified leads per month</strong> across 10 markets — built from scratch.\n\nSee "Case Studies" → AccountX for the full story!`
+      },
+      {
+        keys: ['bertrand','bernard','ecommerce','e-commerce','shopify','meta ads','roas','paid ads','performance marketing'],
+        answer: `The <strong>Bertrand & Bernard case study</strong> covers performance marketing and Shopify CRO.\n\nAman managed paid campaigns and conversion optimisation for multiple e-commerce brands.\n\n<strong>What he did:</strong>\n• Meta Ads campaign management (~$20K/month ad spend)\n• Shopify landing page optimisation & A/B testing\n• CPA reduction & CTR improvement\n• Conversion funnel redesign\n• Website analytics & user journey analysis\n\n<strong>Result: up to 2.5× ROAS</strong> on performance campaigns.\n\nCheck "Case Studies" → Bertrand & Bernard to see the full breakdown!`
+      },
+      {
+        keys: ['meal house','food','founder','startup','b2b food','corporate food','operated'],
+        answer: `The <strong>Meal House case study</strong> is Aman's founder story.\n\nHe founded and ran a B2B food services business serving recurring corporate and industrial clients in the Haryana industrial belt — Bawal, Dharuhera, and Bhiwadi.\n\n<strong>He handled everything:</strong> offer creation, client acquisition, vendor coordination, operations, logistics, and repeat service delivery.\n\n<strong>Result: 3+ corporate clients served</strong>, with a deep practical understanding of pricing, customer retention, and real execution.\n\nThis experience shapes how Aman thinks about growth beyond just campaigns — he's operated a business, not just marketed one. 💡`
+      },
+
+      // ── SERVICES ────────────────────────────────────────────────
+      {
+        keys: ['service','offer','what does','what can','what do','speciali','help with'],
+        answer: `Aman is a <strong>Marketing Manager specialising in Growth & Performance Marketing</strong>. His core areas:\n\n• <strong>GTM Strategy & ICP</strong> — defining who to target, how to position, and how to enter a market\n• <strong>Demand Generation</strong> — building multi-channel acquisition systems from scratch\n• <strong>Performance Marketing</strong> — Meta Ads, Google Ads, LinkedIn, cold email, CRO\n• <strong>Funnel & Conversion Optimisation</strong> — improving MQL→SQL quality and sales readiness\n• <strong>Sales Enablement</strong> — proposals, pitch decks, messaging frameworks\n• <strong>Brand & Communication</strong> — positioning, messaging, content strategy\n\nHis focus: <em>"improve unit economics, test fast, and make every growth motion measurable."</em> 📈`
+      },
+
+      // ── IMPACT / NUMBERS ────────────────────────────────────────
+      {
+        keys: ['result','number','metric','impact','achiev','what has he done','prove','proof','data','roi'],
+        answer: `Here are Aman's verified impact numbers from across his career:\n\n• <strong>40%</strong> — MQL → SQL conversion improvement at Quick Clean\n• <strong>70–80</strong> — qualified leads per month built at AccountX (from zero)\n• <strong>2.5×</strong> — ROAS achieved on Meta performance campaigns\n• <strong>₹30Cr+</strong> — pipeline added across B2B growth programs\n• <strong>₹3Cr+</strong> — marketing budget managed\n• <strong>~$20K/month</strong> — Meta ad spend managed\n• <strong>10 global markets</strong> — outbound systems built at AccountX\n• <strong>₹5Cr opportunity value</strong> — generated via 30–40 qualified leads/quarter\n\nAll of these are detailed in the case studies section! 🎯`
+      },
+
+      // ── EXPERIENCE ──────────────────────────────────────────────
+      {
+        keys: ['experience','year','background','career','history','worked','timeline','how long','senior'],
+        answer: `Aman has <strong>5+ years of growth & marketing experience</strong> across 4 companies:\n\n• <strong>Quick Clean</strong> (Jun 2024 – Feb 2026) — Marketing & Communication Manager. B2B GTM, ICP, demand generation for hospitality & healthcare.\n\n• <strong>AccountX</strong> (Dec 2023 – Apr 2024) — Growth & Communication Manager. Built global outbound engine from scratch across 10 markets.\n\n• <strong>Bertrand & Bernard</strong> (Aug 2021 – Oct 2023) — Digital Marketing Manager. Performance marketing & Shopify CRO for e-commerce brands.\n\n• <strong>Meal House</strong> (Aug 2020 – Aug 2021) — Founder. Built and operated a B2B food services business serving industrial clients.\n\nYou can read about each in detail under the <em>Experience</em> section and <em>Case Studies</em>!`
+      },
+
+      // ── INDUSTRIES ──────────────────────────────────────────────
+      {
+        keys: ['industr','sector','niche','domain','verticals','b2b','b2c','market','segment'],
+        answer: `Aman has hands-on experience across:\n\n• <strong>Hospitality</strong> — Hotels (150+ rooms), GTM & demand generation (Quick Clean)\n• <strong>Healthcare</strong> — Hospitals (250+ beds), B2B acquisition (Quick Clean)\n• <strong>B2B SaaS / Accounting</strong> — Global outbound across UK, US, UAE, Australia (AccountX)\n• <strong>E-commerce / D2C</strong> — Shopify brands, Meta Ads, CRO (Bertrand & Bernard)\n• <strong>Industrial / Food Services</strong> — B2B corporate clients, Haryana industrial belt (Meal House)\n\nHe's strong in both B2B (GTM, ICP, outbound) and B2C/D2C (performance, CRO, paid media). 💡`
+      },
+
+      // ── SKILLS & TOOLS ──────────────────────────────────────────
+      {
+        keys: ['skill','tool','software','platform','tech','stack','use','know','proficien','expert'],
+        answer: `Aman's skill set covers the full growth stack:\n\n<strong>Strategy:</strong> ICP Definition, GTM Strategy, Demand Generation, Pipeline Growth, Sales Enablement\n\n<strong>Acquisition:</strong> Meta Ads, Google Ads, LinkedIn Outreach, Cold Email, CRO, Funnel Optimisation\n\n<strong>Lifecycle:</strong> Email Marketing, Lead Nurturing, WhatsApp Automation, CRM Journeys\n\n<strong>Web & Conversion:</strong> Shopify, Landing Pages, A/B Testing, Analytics\n\n<strong>Tools:</strong> Meta Ads Manager · Google Ads · Instantly.ai · Apollo.io · Sales Navigator · GA4 · SEMrush · Zapier · Shopify · WhatsApp Auto · AI Agents\n\n<strong>Core strengths (self-rated):</strong>\n→ GTM & ICP: 92% · Demand Gen: 90% · Performance: 88% · Funnel & CRO: 86%`
+      },
+
+      // ── CONTACT ─────────────────────────────────────────────────
+      {
+        keys: ['contact','reach','email','phone','call','connect','touch','talk','meet','message','linkedin'],
+        answer: `You can reach Aman directly via:\n\n📧 <strong>amanraj.gtm@gmail.com</strong>\n📞 <strong>+91 73582 58229</strong>\n💼 <strong>linkedin.com/in/amanrajgtm</strong>\n\nOr use the <em>"Contact →"</em> button at the top of this page!\n\nHe typically responds within 24 hours. 🙌`
+      },
+
+      // ── HIRING / AVAILABILITY ────────────────────────────────────
+      {
+        keys: ['hire','available','availabil','open to','job','role','position','freelance','consult','contract','work together','engage','looking'],
+        answer: `Aman is currently <strong>open to the right opportunities</strong> — whether that's a full-time marketing leadership role, a fractional/consulting engagement, or a GTM project.\n\nHe's a strong fit if you need someone who can:\n✅ Define ICP and sharpen your go-to-market\n✅ Build demand generation systems from scratch\n✅ Run performance campaigns (Meta, Google, LinkedIn)\n✅ Improve MQL → SQL funnel quality\n✅ Enable sales with better messaging & collateral\n\nBest first step: email him at <strong>amanraj.gtm@gmail.com</strong> or call <strong>+91 73582 58229</strong>!`
+      },
+
+      // ── RESUME ──────────────────────────────────────────────────
+      {
+        keys: ['resume','cv','download','pdf'],
+        answer: `You can download Aman's resume directly from this portfolio!\n\nJust click the <strong>"Download Resume ↓"</strong> button on the Home page, or scroll to the <em>"Let's Work Together"</em> section at the bottom.\n\nOr reach out at <strong>amanraj.gtm@gmail.com</strong> and he can share it directly. 📄`
+      },
+
+      // ── GTM APPROACH ─────────────────────────────────────────────
+      {
+        keys: ['approach','process','methodolog','how do you','how does he','strategy','gtm','framework','how work'],
+        answer: `Aman's approach to growth is systematic, not spray-and-pray:\n\n<strong>1. ICP First</strong> — Define exactly who the buyer is, what they care about, and what decision-making looks like.\n\n<strong>2. Messaging by Segment</strong> — Different stakeholders have different pain points. Generic messaging loses deals.\n\n<strong>3. Multi-Channel Acquisition</strong> — Build a system across channels (LinkedIn, cold email, events, paid, content) rather than betting on one.\n\n<strong>4. Qualify Early</strong> — Improve the MQL→SQL handoff so sales only touches real opportunities.\n\n<strong>5. Measure Everything</strong> — <em>"Improve unit economics, test fast, and make every growth motion measurable."</em>\n\nSee this in action in his Quick Clean and AccountX case studies! 🔍`
+      },
+
+      // ── B2B SPECIFIC ─────────────────────────────────────────────
+      {
+        keys: ['b2b','enterprise','outbound','lead gen','demand','qualify','pipeline','sales','icp','gtm'],
+        answer: `Yes — B2B is Aman's core strength! 💪\n\nAt <strong>Quick Clean</strong>, he built an end-to-end B2B demand generation system for hospitality & healthcare, with stakeholder-specific messaging across 6 channels.\n\nAt <strong>AccountX</strong>, he built the entire GTM and outbound engine from scratch — ICP research, country-wise messaging, Sales Navigator, Apollo.io, cold email, LinkedIn — across 10 global markets, generating 70–80 qualified leads/month.\n\nHe's comfortable with long B2B sales cycles, multi-stakeholder buying committees, and the nuance of enterprise messaging.`
+      },
+
+      // ── STARTUP / FOUNDER FIT ────────────────────────────────────
+      {
+        keys: ['startup','early stage','stage','zero to','build from','from scratch','founder','0 to 1','new company','new brand'],
+        answer: `Aman is a strong fit for early-stage and scaling companies! 🚀\n\nHe's built things from zero multiple times:\n• AccountX — built the entire marketing & sales engine from nothing\n• Meal House — founded and operated the business himself\n• Quick Clean — built the ICP, messaging, and acquisition system from scratch when none existed\n\nHe understands the founder mindset because he's been one. He knows how to prioritise, move fast, and make limited budgets work hard.\n\nGet in touch at <strong>amanraj.gtm@gmail.com</strong> to discuss your specific situation!`
+      },
+
+      // ── WHO IS RUTH ──────────────────────────────────────────────
+      {
+        keys: ['who are you','who is ruth','ruth','you are','bot','assistant','ai','raccoon','what are you'],
+        answer: `Hi! I'm <strong>Ruth</strong> 🦝, Aman's virtual portfolio assistant.\n\nAman is probably busy working on a GTM strategy or a campaign right now, so I'm here to answer your questions in the meantime!\n\nI know everything about his work, case studies, skills, and experience. Ask me anything — or just tap one of the quick buttons below! 😊`
+      }
+
+    ];
+
+    const FALLBACK = `Hmm, I'm not sure about that specific question! 🦝\n\nFor anything detailed, please reach out to Aman directly:\n📧 <strong>amanraj.gtm@gmail.com</strong>\n📞 <strong>+91 73582 58229</strong>\n\nHe usually responds within 24 hours!`;
+
+    // ── RUTH STATE ───────────────────────────────────────────
+    let ruthOpen = false;
+    let ruthGreeted = false;
+
+    function ruthToggle() {
+      ruthOpen = !ruthOpen;
+      document.getElementById('ruth-window').classList.toggle('ruth-open', ruthOpen);
+      document.getElementById('ruth-notif').style.display = 'none';
+      if (ruthOpen && !ruthGreeted) {
+        ruthGreeted = true;
+        setTimeout(() => ruthShowTyping(() => {
+          ruthAddBot(`Hey there! 👋 I'm <strong>Ruth</strong>, Aman's assistant raccoon.<br><br>Aman might be a bit busy right now, but don't worry — I'm here to answer all your questions about his work, services, and experience!<br><br>What would you like to know? 😊`);
+        }), 400);
+      }
+      if (ruthOpen) setTimeout(() => document.getElementById('ruth-input').focus(), 300);
+    }
+
+    function ruthAddBot(html) {
+      const msgs = document.getElementById('ruth-msgs');
+      const wrap = document.createElement('div');
+      wrap.className = 'rm bot';
+      wrap.innerHTML = `<div class="rm-av"><svg viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg"><ellipse cx="14" cy="14" rx="9" ry="10" fill="#6a6a6a"/><ellipse cx="42" cy="14" rx="9" ry="10" fill="#6a6a6a"/><ellipse cx="14" cy="14" rx="5.5" ry="6.5" fill="#9d9d9d"/><ellipse cx="42" cy="14" rx="5.5" ry="6.5" fill="#9d9d9d"/><ellipse cx="14" cy="14" rx="3.2" ry="4" fill="#e0a8b2"/><ellipse cx="42" cy="14" rx="3.2" ry="4" fill="#e0a8b2"/><circle cx="28" cy="33" r="22" fill="#9d9d9d"/><ellipse cx="19.5" cy="31" rx="10" ry="8.5" fill="#3c3c3c"/><ellipse cx="36.5" cy="31" rx="10" ry="8.5" fill="#3c3c3c"/><circle cx="19.5" cy="31" r="6" fill="#f2f2f2"/><circle cx="36.5" cy="31" r="6" fill="#f2f2f2"/><circle cx="20.5" cy="31.8" r="3.8" fill="#222"/><circle cx="37.5" cy="31.8" r="3.8" fill="#222"/><circle cx="22" cy="30" r="1.6" fill="#fff"/><circle cx="39" cy="30" r="1.6" fill="#fff"/><ellipse cx="28" cy="39.5" rx="5" ry="3.5" fill="#5c5c5c"/><path d="M23 43 Q28 47.5 33 43" stroke="#5c5c5c" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg></div><div class="rm-b">${html.replace(/\n/g,'<br>')}</div>`;
+      msgs.appendChild(wrap);
+      msgs.scrollTop = msgs.scrollHeight;
+    }
+
+    function ruthAddUser(text) {
+      const msgs = document.getElementById('ruth-msgs');
+      const wrap = document.createElement('div');
+      wrap.className = 'rm usr';
+      wrap.innerHTML = `<div class="rm-b">${text}</div>`;
+      msgs.appendChild(wrap);
+      msgs.scrollTop = msgs.scrollHeight;
+    }
+
+    function ruthShowTyping(cb) {
+      const msgs = document.getElementById('ruth-msgs');
+      const t = document.createElement('div');
+      t.className = 'rm bot'; t.id = 'ruth-typing-el';
+      t.innerHTML = `<div class="rm-av"><svg viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg"><ellipse cx="14" cy="14" rx="9" ry="10" fill="#6a6a6a"/><ellipse cx="42" cy="14" rx="9" ry="10" fill="#6a6a6a"/><ellipse cx="14" cy="14" rx="5.5" ry="6.5" fill="#9d9d9d"/><ellipse cx="42" cy="14" rx="5.5" ry="6.5" fill="#9d9d9d"/><circle cx="28" cy="33" r="22" fill="#9d9d9d"/><ellipse cx="19.5" cy="31" rx="10" ry="8.5" fill="#3c3c3c"/><ellipse cx="36.5" cy="31" rx="10" ry="8.5" fill="#3c3c3c"/><circle cx="19.5" cy="31" r="6" fill="#f2f2f2"/><circle cx="36.5" cy="31" r="6" fill="#f2f2f2"/><circle cx="20.5" cy="31.8" r="3.8" fill="#222"/><circle cx="37.5" cy="31.8" r="3.8" fill="#222"/><circle cx="22" cy="30" r="1.6" fill="#fff"/><circle cx="39" cy="30" r="1.6" fill="#fff"/></svg></div><div class="rm-b ruth-typing"><span></span><span></span><span></span></div>`;
+      msgs.appendChild(t);
+      msgs.scrollTop = msgs.scrollHeight;
+      setTimeout(() => {
+        const el = document.getElementById('ruth-typing-el');
+        if (el) el.remove();
+        cb();
+      }, 900);
+    }
+
+    function ruthGetAnswer(q) {
+      const lower = q.toLowerCase();
+      for (const item of RUTH_QA) {
+        if (item.keys.some(k => lower.includes(k))) return item.answer;
+      }
+      return FALLBACK;
+    }
+
+    function ruthSend() {
+      const input = document.getElementById('ruth-input');
+      const text = input.value.trim();
+      if (!text) return;
+      input.value = '';
+      ruthAsk(text);
+    }
+
+    function ruthAsk(text) {
+      ruthAddUser(text);
+      const answer = ruthGetAnswer(text);
+      ruthShowTyping(() => ruthAddBot(answer));
+    }
   </script>
 
 </body>
