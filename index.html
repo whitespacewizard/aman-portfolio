@@ -3193,6 +3193,96 @@
       .bb-period-btn { flex: 1; }
     }
 
+
+
+    /* B&B strategy explanation block */
+    .bb-strategy-card {
+      margin-top: 28px;
+      margin-bottom: 28px;
+      background: var(--white);
+      border: 1px solid var(--grey-border);
+      border-radius: 24px;
+      padding: 34px;
+    }
+    .bb-strategy-head {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 42px;
+      align-items: start;
+      padding-bottom: 26px;
+      border-bottom: 1px solid var(--grey-border);
+    }
+    .bb-strategy-title {
+      font-size: clamp(22px, 2.2vw, 32px);
+      font-weight: 800;
+      letter-spacing: -0.035em;
+      line-height: 1.12;
+      color: var(--black);
+      margin-top: 8px;
+    }
+    .bb-strategy-intro {
+      font-size: 14px;
+      line-height: 1.85;
+      color: var(--grey-mid);
+      max-width: 640px;
+    }
+    .bb-strategy-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--grey-border);
+      border: 1px solid var(--grey-border);
+      border-radius: 20px;
+      overflow: hidden;
+      margin-top: 28px;
+    }
+    .bb-strategy-item {
+      background: var(--white);
+      padding: 24px 22px;
+      min-height: 210px;
+    }
+    .bb-strategy-num {
+      display: inline-flex;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+    .bb-strategy-item h5 {
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: -.02em;
+      line-height: 1.25;
+      margin-bottom: 10px;
+      color: var(--black);
+    }
+    .bb-strategy-item p {
+      font-size: 12px;
+      line-height: 1.75;
+      color: var(--grey-mid);
+    }
+    .bb-measurement-note {
+      margin-top: 22px;
+      padding: 16px 18px;
+      border: 1px solid var(--grey-border);
+      border-left: 2px solid var(--accent);
+      background: var(--off-white);
+      border-radius: 14px;
+      font-size: 12px;
+      line-height: 1.75;
+      color: var(--grey-mid);
+    }
+    .bb-measurement-note strong { color: var(--black); font-weight: 800; }
+    @media (max-width: 900px) {
+      .bb-strategy-card { padding: 24px 20px; }
+      .bb-strategy-head { grid-template-columns: 1fr; gap: 16px; }
+      .bb-strategy-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .bb-strategy-grid { grid-template-columns: 1fr; }
+    }
 </style>
 
 
@@ -5189,6 +5279,7 @@
       <a class="bb-mini-nav-link" href="#bb-overview" onclick="bbScrollTo('bb-overview');return false;">Overview</a>
       <a class="bb-mini-nav-link" href="#bb-work" onclick="bbScrollTo('bb-work');return false;">Work Split</a>
       <a class="bb-mini-nav-link" href="#bb-results" onclick="bbScrollTo('bb-results');return false;">Results</a>
+      <a class="bb-mini-nav-link" href="#bb-strategy" onclick="bbScrollTo('bb-strategy');return false;">Strategy</a>
       <a class="bb-mini-nav-link" href="#bb-proof" onclick="bbScrollTo('bb-proof');return false;">Proof</a>
       <a class="bb-mini-nav-link" href="#bb-tools" onclick="bbScrollTo('bb-tools');return false;">Tools</a>
       <button type="button" class="bb-mini-nav-btn" onclick="ruthOpenWithQuestion('Tell me about the Bertrand & Bernard case study')">Ask Ruth</button>
@@ -5261,7 +5352,7 @@
       <div class="bb-data-panel active reveal d3" data-bb-panel="dental">
         <div class="bb-panel-kicker">Dental Clinic Performance</div>
         <h3 class="bb-panel-title">Jan to Jun 2023 vs Jul to Dec 2023</h3>
-        <p class="bb-panel-copy">The account moved from a high-cost, low-conversion phase into a much more efficient conversion phase after July. The visible Google Ads snapshots were used as proof, while the comparison below shows the before-and-after movement in a clean portfolio format.</p>
+        <p class="bb-panel-copy">The account moved from a high-cost, low-conversion phase into a much more efficient measured-conversion phase after July. The visible Google Ads snapshots are used as proof, while the comparison below shows the before-and-after movement in a clean portfolio format. A separate strategy note explains what likely changed behind the improvement.</p>
 
         <div id="bb-before-after" class="bb-period-switch-card">
           <div class="bb-period-top">
@@ -5334,6 +5425,55 @@
             <div class="bb-metric-label">Best Phase</div>
             <div class="bb-metric-value">H2 2023</div>
             <div class="bb-metric-change">Jul-Dec peak</div>
+          </div>
+        </div>
+
+
+
+        <div id="bb-strategy" class="bb-strategy-card">
+          <div class="bb-strategy-head">
+            <div>
+              <div class="bb-panel-kicker">What Changed</div>
+              <h4 class="bb-strategy-title">Why the performance shifted in H2 2023</h4>
+            </div>
+            <p class="bb-strategy-intro">The improvement was not just a bigger budget story. The account review points to a mix of cleaner campaign structure, stronger conversion signals, better campaign hygiene, and more focused market expansion. The safest read is that H2 2023 improved because the account became easier for Google Ads to optimize and budget was pushed toward stronger lead potential.</p>
+          </div>
+
+          <div class="bb-strategy-grid">
+            <div class="bb-strategy-item">
+              <span class="bb-strategy-num">01</span>
+              <h5>Tracking and signal quality improved</h5>
+              <p>Earlier conversion data looked limited or inconsistent. As tracking and lead-form signals improved, Smart Bidding had better data to optimize against, which helped measured conversions rise sharply.</p>
+            </div>
+            <div class="bb-strategy-item">
+              <span class="bb-strategy-num">02</span>
+              <h5>Smart Bidding had more learning data</h5>
+              <p>The legacy campaigns kept Maximize Conversions, but by H2 the algorithm had more conversion history. That likely helped it find better users without needing a major bidding overhaul.</p>
+            </div>
+            <div class="bb-strategy-item">
+              <span class="bb-strategy-num">03</span>
+              <h5>Weak tests were pruned</h5>
+              <p>Underperforming campaigns and experiments were reduced, paused, or replaced. This helped stop budget bleed and kept more spend inside campaigns that had stronger conversion behavior.</p>
+            </div>
+            <div class="bb-strategy-item">
+              <span class="bb-strategy-num">04</span>
+              <h5>New market expansion was tested</h5>
+              <p>A dedicated New Zealand push was introduced in July, while USA activity was also scaled. This added new audience pools instead of relying only on the earlier Australia and Bangkok setup.</p>
+            </div>
+            <div class="bb-strategy-item">
+              <span class="bb-strategy-num">05</span>
+              <h5>Budget moved toward higher intent</h5>
+              <p>Spend was not increased aggressively. The bigger change was where the budget went: more emphasis on campaigns and channels that could produce trackable lead actions.</p>
+            </div>
+            <div class="bb-strategy-item">
+              <span class="bb-strategy-num">06</span>
+              <h5>The result was efficiency, not just volume</h5>
+              <p>Impressions were lower in the proof account view, yet conversions increased and cost per conversion dropped. That points to better traffic quality and improved measurement, not just more reach.</p>
+            </div>
+          </div>
+
+          <div class="bb-measurement-note">
+            <strong>Measurement note:</strong> Conversion numbers are shown as measured Google Ads conversions. Because tracking was improved during the year, the lift reflects both stronger campaign performance and better conversion measurement, not a pure claim of business growth.
           </div>
         </div>
 
@@ -5430,12 +5570,13 @@
           <div class="bb-table-card">
             <div class="bb-card-title">What Actually Improved</div>
             <table class="bb-data-table">
-              <thead><tr><th>Area</th><th>Impact</th></tr></thead>
+              <thead><tr><th>Area</th><th>What changed</th></tr></thead>
               <tbody>
-                <tr><td><strong>Campaign structure</strong></td><td>Cleaner campaign separation helped concentrate budget on stronger intent pockets.</td></tr>
-                <tr><td><strong>Audience quality</strong></td><td>Targeting moved away from broad inefficient reach toward segments that converted better.</td></tr>
-                <tr><td><strong>Lead efficiency</strong></td><td>Lower CPA showed that spend was being converted into enquiries more effectively.</td></tr>
-                <tr><td><strong>Optimization cadence</strong></td><td>Continuous testing helped keep waste under control through the second half of the year.</td></tr>
+                <tr><td><strong>Conversion tracking</strong></td><td>Tracking and lead signals became more reliable in H2, giving the account clearer measured conversion data.</td></tr>
+                <tr><td><strong>Bidding signal quality</strong></td><td>Maximize Conversions had more historical data to learn from, which likely improved delivery toward users more likely to submit leads.</td></tr>
+                <tr><td><strong>Campaign hygiene</strong></td><td>Weak tests were reduced or replaced, while budget was kept closer to campaigns with stronger conversion behavior.</td></tr>
+                <tr><td><strong>Market expansion</strong></td><td>New geography-focused campaigns, especially New Zealand and USA, opened additional qualified demand pools.</td></tr>
+                <tr><td><strong>Efficiency read</strong></td><td>The improvement looked quality-led: impressions dropped in the proof account view, but conversions increased and CPA reduced heavily.</td></tr>
               </tbody>
             </table>
           </div>
@@ -8270,6 +8411,7 @@
       <button class="ruth-chip" onclick="ruthAsk('What are his case studies?')">Case Studies</button>
       <button class="ruth-chip" onclick="ruthAsk('Tell me about Bertrand & Bernard case study')">B&B Case</button>
       <button class="ruth-chip" onclick="ruthAsk('What improved after July 2023 in the Dr Sunil case study?')">Dr Sunil Results</button>
+      <button class="ruth-chip" onclick="ruthAsk('What exactly changed in the Dr Sunil account?')">What Changed</button>
       <button class="ruth-chip" onclick="ruthAsk('Why are the Google Ads screenshots blurred?')">Proof Screenshots</button>
       <button class="ruth-chip" onclick="ruthAsk('What are his key results and numbers?')">Impact Numbers</button>
       <button class="ruth-chip" onclick="ruthAsk('What services does Aman offer?')">Services</button>
@@ -8373,11 +8515,23 @@
         keys: ['after july','before july','before after','jan jun','jul dec','july december','dr sunil results','cpa improved','cost per conversion','what improved after july','performance shift'],
         answer: `In the <strong>Dr Sunil section</strong> of the Bertrand & Bernard case study, the clearest improvement happened after July 2023.
 
-<strong>Jan-Jun 2023:</strong> ₹55.56L spend, 48 conversions, ₹1.16L cost/conv., 388K impressions.
+<strong>Jan-Jun 2023:</strong> ₹55.56L spend, 48 measured conversions, ₹1.16L cost/conv., 388K impressions.
 
-<strong>Jul-Dec 2023:</strong> ₹59.84L spend, 361 conversions, ₹16.6K cost/conv., 337K impressions.
+<strong>Jul-Dec 2023:</strong> ₹59.84L spend, 361 measured conversions, ₹16.6K cost/conv., 337K impressions.
 
-So spend increased only <strong>7.7%</strong>, but conversions increased <strong>652.1%</strong> and cost per conversion dropped by <strong>85.7%</strong>. The page has a Before/After toggle, a comparison graph, a table, and blurred Google Ads proof screenshots.`
+So spend increased only <strong>7.7%</strong>, while measured conversions increased <strong>652.1%</strong> and cost per conversion dropped by <strong>85.7%</strong>. The likely drivers were better conversion tracking, stronger Smart Bidding signals, campaign pruning, budget consolidation, and new geography-focused tests. The page includes a Before/After toggle, a strategy explanation, a comparison graph, and blurred proof screenshots.`
+      },
+      {
+        keys: ['what did aman do','what exactly changed','why performance improved','what caused improvement','campaign changes','tracking changed','bidding signal','new zealand','market expansion','what we did in dr sunil'],
+        answer: `For the <strong>Dr Sunil</strong> part of the Bertrand & Bernard case study, the improvement came from a few connected changes:
+
+<strong>1.</strong> Conversion tracking and lead signals became cleaner, so measured conversion data improved.
+<strong>2.</strong> Maximize Conversions had more historical data by H2, which helped Smart Bidding optimize better.
+<strong>3.</strong> Weak tests were reduced or replaced, so budget stayed closer to campaigns with stronger conversion behavior.
+<strong>4.</strong> New geography-focused tests, including New Zealand and USA, opened extra demand pools.
+<strong>5.</strong> The account became more quality-led: impressions were lower in the proof view, but measured conversions rose and CPA dropped.
+
+Important note: the lift should be read as <strong>measured Google Ads performance</strong>, because conversion tracking also improved during the year.`
       },
       {
         keys: ['screenshot','screenshots','proof image','blurred','confidential','hidden name','campaign name','google ads proof'],
