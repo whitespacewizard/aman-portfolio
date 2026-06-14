@@ -3993,6 +3993,205 @@
     }
   </style>
 
+
+
+<style id="mobile-menu-about-footer-fix">
+  /* Final QA fixes: mobile menu height, About overlap, and footer/chat spacing */
+  @media (max-width: 1000px) {
+    #page-home #about.home-about-different .about-left {
+      top: auto !important;
+      transform: none !important;
+    }
+
+    #page-home #about.home-about-different .about-grid {
+      align-items: start !important;
+    }
+  }
+
+  @media (max-width: 900px) {
+    nav#navbar {
+      transform: none !important;
+      backface-visibility: visible !important;
+      z-index: 10000 !important;
+    }
+
+    #navLinks {
+      position: fixed !important;
+      top: 56px !important;
+      left: 0 !important;
+      right: 0 !important;
+      bottom: auto !important;
+      width: 100vw !important;
+      height: calc(100dvh - 56px) !important;
+      min-height: calc(100vh - 56px) !important;
+      max-height: calc(100dvh - 56px) !important;
+      overflow-y: auto !important;
+      overscroll-behavior: contain !important;
+      z-index: 9999 !important;
+      background: var(--white) !important;
+      transform: translateX(100%) !important;
+      transition: transform 0.28s var(--ease) !important;
+      padding: 24px 24px 56px !important;
+      align-items: stretch !important;
+    }
+
+    #navLinks:not(.open) {
+      display: none !important;
+      pointer-events: none !important;
+    }
+
+    #navLinks.open {
+      display: flex !important;
+      transform: translateX(0) !important;
+      pointer-events: auto !important;
+    }
+
+    #navLinks > li {
+      width: 100% !important;
+      flex: 0 0 auto !important;
+    }
+
+    #navLinks > li > a {
+      width: 100% !important;
+      justify-content: flex-start !important;
+    }
+
+    #navLinks .nav-cta {
+      justify-content: center !important;
+      margin-left: 0 !important;
+      width: 100% !important;
+    }
+  }
+
+  @media (max-width: 600px) {
+    #page-home #about.home-about-different {
+      padding-top: 64px !important;
+      padding-bottom: 64px !important;
+    }
+
+    #page-home #about.home-about-different .about-grid {
+      gap: 34px !important;
+    }
+
+    #page-home #about.home-about-different .about-portrait {
+      margin-bottom: 18px !important;
+    }
+
+    #page-home #about.home-about-different .about-badge {
+      margin-bottom: 0 !important;
+      line-height: 1.35 !important;
+    }
+
+    #page-home #about.home-about-different .about-body {
+      margin-top: 0 !important;
+    }
+
+    footer {
+      width: 100% !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+      text-align: center !important;
+      gap: 16px !important;
+      padding: 34px 20px 118px !important;
+      overflow: visible !important;
+    }
+
+    footer .footer-logo,
+    footer .footer-copy,
+    footer .footer-links {
+      justify-self: center !important;
+      width: 100% !important;
+      text-align: center !important;
+    }
+
+    footer .footer-links {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 14px !important;
+    }
+
+    #ruth-fab {
+      right: 18px !important;
+      bottom: 22px !important;
+    }
+  }
+</style>
+<script id="mobile-menu-reliable-fix">
+  (function () {
+    function initReliableMobileMenu() {
+      var hamburger = document.getElementById('hamburger');
+      var navLinks = document.getElementById('navLinks');
+      if (!hamburger || !navLinks || hamburger.getAttribute('data-reliable-menu') === '1') return;
+      hamburger.setAttribute('data-reliable-menu', '1');
+
+      function setMenu(open) {
+        navLinks.classList.toggle('open', open);
+        hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
+        var bars = hamburger.querySelectorAll('span');
+        if (bars[0]) bars[0].style.transform = open ? 'translateY(6.5px) rotate(45deg)' : '';
+        if (bars[1]) bars[1].style.opacity = open ? '0' : '1';
+        if (bars[2]) bars[2].style.transform = open ? 'translateY(-6.5px) rotate(-45deg)' : '';
+        document.documentElement.style.overflow = open ? 'hidden' : '';
+      }
+
+      hamburger.addEventListener('click', function (event) {
+        if (window.matchMedia('(max-width: 900px)').matches) {
+          event.preventDefault();
+          event.stopImmediatePropagation();
+          setMenu(!navLinks.classList.contains('open'));
+        }
+      }, true);
+
+      navLinks.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () {
+          if (window.matchMedia('(max-width: 900px)').matches) setMenu(false);
+        });
+      });
+
+      window.addEventListener('resize', function () {
+        if (!window.matchMedia('(max-width: 900px)').matches) setMenu(false);
+      });
+    }
+
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initReliableMobileMenu);
+    else initReliableMobileMenu();
+  }());
+</script>
+
+
+<style id="final-overlap-safety-fix">
+  /* Extra overlap safety for tablet landscape carousel controls and scroll containers */
+  @media (max-width: 1100px) {
+    .cs-scroll-outer {
+      overflow: hidden !important;
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+    }
+
+    .cs-arrow-left {
+      left: 8px !important;
+    }
+
+    .cs-arrow-right {
+      right: 8px !important;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .cs-arrow {
+      display: none !important;
+    }
+
+    .cs-preview-grid .cs-card {
+      width: min(86vw, 420px) !important;
+    }
+  }
+</style>
+
 </head>
 <body>
 
@@ -7378,14 +7577,7 @@
       if (route) setTimeout(() => showPage(route[0], route[1]), 120);
     });
 
-    // ── SECURITY: Disable Right-Click, DevTools & View Source ──
-    document.addEventListener('contextmenu', function(e) { e.preventDefault(); });
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'F12') { e.preventDefault(); return false; }
-      if (e.ctrlKey && e.shiftKey && ['I','i','J','j','C','c'].includes(e.key)) { e.preventDefault(); return false; }
-      if (e.ctrlKey && ['U','u'].includes(e.key)) { e.preventDefault(); return false; }
-      if (e.altKey && ['U','u'].includes(e.key)) { e.preventDefault(); return false; }
-    });
+    // Inspect/devtools access enabled for responsive testing.
 
     // Show home on load
     showPage('home');
@@ -10383,14 +10575,6 @@
     .map-section-title {
       letter-spacing: 0.12em !important;
     }
-  }
-</style>
-
-<style>
-  /* Tablet-landscape responsive safeguard: keep carousel arrows inside viewport */
-  @media (min-width: 901px) and (max-width: 1100px) {
-    .cs-arrow-left { left: 8px !important; }
-    .cs-arrow-right { right: 8px !important; }
   }
 </style>
 
