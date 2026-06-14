@@ -9930,6 +9930,462 @@
     }
 </style>
 
+<style>
+  /* Responsive-only final layer: mobile and tablet fixes without changing content or desktop styling */
+  @media (max-width: 1100px) {
+    html,
+    body {
+      max-width: 100% !important;
+      overflow-x: hidden !important;
+    }
+
+    .page,
+    section,
+    .container,
+    .cs-scroll-outer,
+    .cs-scroll-wrap,
+    .testimonials-carousel,
+    .js-deck-wrap,
+    .js-deck-scroll,
+    .map-svg-wrap,
+    .auto-visual-shell,
+    .auto-visual-body,
+    .qc-site-card,
+    .qc-browser-shell,
+    .qc-events-shell,
+    .qc-outreach-layout,
+    .ax-email-layout,
+    .bb-table-card,
+    .matrix-table {
+      max-width: 100% !important;
+      min-width: 0 !important;
+    }
+
+    .cs-preview-grid,
+    .testimonials-carousel .testimonials-grid,
+    .js-deck-scroll {
+      max-width: none !important;
+    }
+
+    img,
+    svg,
+    video,
+    canvas,
+    iframe {
+      max-width: 100% !important;
+    }
+
+    table {
+      max-width: 100% !important;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .container {
+      padding-left: 24px !important;
+      padding-right: 24px !important;
+    }
+
+    nav {
+      padding-left: 24px !important;
+      padding-right: 24px !important;
+    }
+
+    .nav-links.open {
+      left: 0 !important;
+      right: 0 !important;
+      width: 100% !important;
+    }
+
+    .nav-links > li > a:not(.nav-cta)::after {
+      display: none !important;
+    }
+
+    .hero-name,
+    .hero-role,
+    body #page-home #hero.hero-centered .hero-role,
+    body #page-home #hero.hero-centered .hero-proof-meta {
+      white-space: normal !important;
+      overflow-wrap: anywhere !important;
+    }
+
+    .hero-actions,
+    .case-result,
+    .cta-actions,
+    .cs-cta-actions,
+    .map-country-pills,
+    .skill-tags,
+    .tools-list,
+    .case-chips,
+    .op-chips,
+    .cs-tags,
+    .bb-period-toggle-row,
+    .qc-system-chips {
+      flex-wrap: wrap !important;
+    }
+
+    .about-grid,
+    .think-header,
+    .impact-header,
+    .op-grid,
+    .skills-grid,
+    .cta-grid,
+    .home-about-redesign .about-grid,
+    #page-home #about.home-about-different .about-grid,
+    .overview-grid,
+    .case-cols,
+    .icp-branches,
+    .cs-event-grid,
+    .qc-funnel-shell,
+    .qc-funnel-detail-top,
+    .bb-compare,
+    .ax-email-head,
+    .ax-email-shot-grid,
+    .ax-email-story-grid,
+    .ax-email-metric-clusters,
+    .ax-email-month-grid,
+    .ax-email-layout,
+    .qc-events-shell,
+    .qc-outreach-layout,
+    .qc-site-card-body,
+    .lip-testimonial-card,
+    .js-snapshot-hero,
+    .about-page-grid,
+    .about-page-section-head {
+      grid-template-columns: minmax(0, 1fr) !important;
+    }
+
+    .impact-grid,
+    .stats-strip,
+    .auto-metrics,
+    .auto-agents,
+    .auto-flow-row,
+    .cro-grid,
+    .ch-perf-grid,
+    .bb-brand-grid,
+    .bb-metric-grid,
+    .bb-period-stat-grid,
+    .bb-strategy-grid,
+    .flag-grid,
+    .ax-icp-grid,
+    .ch-cards,
+    .ax-ch-cards,
+    .auto-agent-map,
+    .qc-event-flow,
+    .proof-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+
+    .proof-grid,
+    .bb-proof-grid,
+    .bb-graph,
+    .bb-insight-grid,
+    .bb-placeholder-panel,
+    .auto-grid,
+    .auto-process-path,
+    .home-belief-strip,
+    .cert-grid,
+    .about-mini-grid {
+      grid-template-columns: minmax(0, 1fr) !important;
+    }
+
+    .case-col,
+    .impact-card,
+    .proof-card,
+    .auto-panel,
+    .auto-agent,
+    .ax-icp-card,
+    .ch-card,
+    .bb-chart-card,
+    .bb-table-card,
+    .qc-site-card,
+    .qc-event-card,
+    .qc-proof-card,
+    .ax-email-card,
+    .testimonial-card,
+    .cs-card {
+      min-width: 0 !important;
+    }
+
+    .cs-preview-grid .cs-card {
+      width: min(320px, calc(100vw - 48px)) !important;
+      min-width: 0 !important;
+    }
+
+    .cs-arrow {
+      display: none !important;
+    }
+
+    .matrix-table,
+    .bb-data-table,
+    .bb-table-card,
+    .qc-dashboard-proof,
+    .map-svg-wrap,
+    .js-deck-wrap,
+    .cs-scroll-wrap {
+      overflow-x: auto !important;
+      -webkit-overflow-scrolling: touch !important;
+    }
+
+    .map-svg-wrap svg,
+    .icp-connector-svg,
+    .ch-connector-svg,
+    .ax-icp-connector {
+      height: auto !important;
+    }
+
+    .budget-row,
+    .bb-bar-row {
+      grid-template-columns: minmax(0, 1fr) !important;
+      gap: 8px !important;
+    }
+
+    .budget-pct,
+    .budget-row-label,
+    .bb-bar-value {
+      text-align: left !important;
+    }
+
+    footer {
+      padding-left: 24px !important;
+      padding-right: 24px !important;
+    }
+  }
+
+  @media (max-width: 700px) {
+    .impact-grid,
+    .stats-strip,
+    .auto-metrics,
+    .auto-agents,
+    .auto-flow-row,
+    .cro-grid,
+    .ch-perf-grid,
+    .bb-brand-grid,
+    .bb-metric-grid,
+    .bb-period-stat-grid,
+    .bb-strategy-grid,
+    .flag-grid,
+    .ax-icp-grid,
+    .ch-cards,
+    .ax-ch-cards,
+    .auto-agent-map,
+    .qc-event-flow,
+    .proof-grid,
+    .icp-row,
+    .ax-email-month-stats,
+    .bb-graph,
+    .bb-insight-grid {
+      grid-template-columns: minmax(0, 1fr) !important;
+    }
+
+    .case-top,
+    .cs-cta-inner,
+    .cs-cta-strip-inner,
+    .cases-header-row,
+    .footer-links,
+    .cta-proof-strip {
+      flex-direction: column !important;
+      align-items: flex-start !important;
+    }
+
+    .cta-proof-strip {
+      gap: 18px !important;
+      text-align: left !important;
+    }
+
+    .cta-proof-divider {
+      display: none !important;
+    }
+
+    .cta-proof-item {
+      width: 100% !important;
+      text-align: left !important;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .container {
+      padding-left: 20px !important;
+      padding-right: 20px !important;
+    }
+
+    nav {
+      padding-left: 20px !important;
+      padding-right: 20px !important;
+    }
+
+    .nav-links.open {
+      padding-left: 20px !important;
+      padding-right: 20px !important;
+    }
+
+    #hero,
+    body #page-home #hero.hero-centered,
+    .cs-hero,
+    .about-page-hero {
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+    }
+
+    .hero-actions,
+    body #page-home #hero.hero-centered .hero-actions,
+    .cs-cta-actions,
+    .cta-actions {
+      width: 100% !important;
+      flex-direction: column !important;
+      align-items: stretch !important;
+    }
+
+    .btn-ghost,
+    .btn-accent,
+    .nav-cta {
+      justify-content: center !important;
+      max-width: 100% !important;
+      text-align: center !important;
+    }
+
+    .btn-text,
+    .btn-outline-white,
+    .btn-outline-w {
+      align-self: center !important;
+    }
+
+    .hero-profile-meta,
+    .home-about-system-top,
+    .home-about-card,
+    .think-row,
+    .timeline-item,
+    .seq-step,
+    .qc-email-meta-row,
+    .home-about-system-top,
+    .cs-metrics-row {
+      grid-template-columns: minmax(0, 1fr) !important;
+    }
+
+    .home-about-card p,
+    .think-copy {
+      grid-column: auto !important;
+    }
+
+    .case-highlight,
+    .cs-metric,
+    .cs-metrics-row,
+    .case-result {
+      width: 100% !important;
+    }
+
+    .case-highlight {
+      align-items: flex-start !important;
+    }
+
+    .icp-section,
+    .channel-section,
+    .map-section,
+    .ax-icp-section,
+    .ax-channel-section,
+    .ax-budget-section,
+    .op-diagram-wrap,
+    .home-about-system,
+    .proof-card,
+    .cs-card,
+    .testimonial-card,
+    .cta-card {
+      padding-left: 18px !important;
+      padding-right: 18px !important;
+    }
+
+    .cs-preview-grid .cs-card {
+      width: calc(100vw - 40px) !important;
+    }
+
+    .flag-card {
+      padding: 16px 10px !important;
+    }
+
+    .flag-emoji {
+      font-size: 26px !important;
+    }
+
+    .flag-name,
+    .ch-card-point,
+    .icp-card-item,
+    .ax-icp-card-item {
+      overflow-wrap: anywhere !important;
+    }
+
+    .cs-title,
+    .section-heading,
+    .hero-role,
+    .hero-name,
+    .cta-heading,
+    .about-page-title,
+    .bb-period-title,
+    .qc-funnel-detail h3,
+    .js-snapshot-title {
+      overflow-wrap: anywhere !important;
+    }
+
+    [style*="grid-template-columns:repeat(auto-fill,minmax(320px,1fr))"],
+    [style*="grid-template-columns: repeat(auto-fill,minmax(320px,1fr))"] {
+      grid-template-columns: minmax(0, 1fr) !important;
+    }
+
+    #ruth-window {
+      width: calc(100vw - 24px) !important;
+      right: 12px !important;
+      bottom: 96px !important;
+      max-height: min(510px, calc(100vh - 120px)) !important;
+    }
+
+    #ruth-nudge,
+    #copy-toast {
+      max-width: calc(100vw - 32px) !important;
+      white-space: normal !important;
+    }
+
+    #ruth-nudge {
+      right: 16px !important;
+    }
+
+    #copy-toast {
+      left: 50% !important;
+      right: auto !important;
+      transform: translateX(-50%) !important;
+      text-align: center !important;
+    }
+
+    footer {
+      padding-left: 20px !important;
+      padding-right: 20px !important;
+    }
+  }
+
+  @media (max-width: 420px) {
+    .hero-avail,
+    .cta-avail,
+    .chip,
+    .skill-tag,
+    .tool-chip,
+    .map-pill,
+    .icp-stake-pill,
+    .cs-tag,
+    .bb-graph-badge,
+    .bb-mini-nav-link,
+    .bb-mini-nav-btn {
+      white-space: normal !important;
+    }
+
+    .hero-eyebrow,
+    .section-eyebrow,
+    .case-col-label,
+    .icp-section-title,
+    .channel-section-title,
+    .map-section-title {
+      letter-spacing: 0.12em !important;
+    }
+  }
+</style>
+
   <!-- Ruth HTML -->
   <div id="copy-toast">✓ Email copied to clipboard</div>
 
